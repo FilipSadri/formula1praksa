@@ -4,7 +4,6 @@ import Teams from "./components/Teams";
 import Races from "./components/Teams";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-
 export default class App extends React.Component {
 
     render() {
