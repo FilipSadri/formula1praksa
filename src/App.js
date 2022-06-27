@@ -10,6 +10,7 @@ export default class App extends React.Component {
             <div>
                 <div>Formula 1</div>
                 <Teams />
+                <Drivers/>
             </div>
         );
     };
