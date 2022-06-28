@@ -1,11 +1,6 @@
 import React from 'react';
 import * as $ from 'jquery';
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 789617ab1a6eb976c347a819a539056a32946cc6
 export default class DriverDetails extends React.Component {
 
     state = {
