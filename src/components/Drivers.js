@@ -25,13 +25,13 @@ export default class Drivers extends React.Component {
     }
 
     handleClickDetails = (id) => {
-        console.log("id", id)
+        //console.log("id", id)
         const url = `/driverDetails/${id}`
         history.push(url);
     }
 
     render(){
-        console.log("state", this.state.drivers)
+        //console.log("state", this.state.drivers)
         return(
             <div>                
                 <table border={1}>
@@ -45,7 +45,7 @@ export default class Drivers extends React.Component {
                         {this.state.drivers.map(driver => 
                              <tr key={driver.Driver.driverId}  onClick={()=> this.handleClickDetails(driver.Driver.driverId)}>
                                 <td>{driver.position}</td>
-                                <td><Link to ={`/driverDetails/${driver.Driver.driverId}`}>{driver.Driver.givenName} {driver.Driver.familyName}</Link></td>
+                                <td>{driver.Driver.givenName} {driver.Driver.familyName}</td>
                                 <td>{driver.Constructors[0].name}</td>
                                 <td>{driver.points}</td>
                             </tr>
