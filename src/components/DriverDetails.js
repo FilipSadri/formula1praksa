@@ -32,7 +32,7 @@ export default class DriverDetails extends React.Component {
                 {this.state.details.map(detail=>{
                     return (
                     <div key={detail.Driver.driverId}>
-                        <h3>Driver details:</h3>
+                        <h3>Driver details</h3>
                         <p>Full Name:{detail.Driver.givenName} {detail.Driver.familyName}</p>
                         <p>Birthday:{detail.Driver.dateOfBirth}</p>
                         <p>Country:{detail.Driver.nationality}</p>  
