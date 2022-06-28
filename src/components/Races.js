@@ -26,7 +26,9 @@ export default class Races extends React.Component {
         <table className="custom-table">
           <thead>
             <tr>
-              <td colSpan={5}>Race Calendar-2013</td>
+              <td colSpan={5} className="table-title">
+                Race Calendar-2013
+              </td>
             </tr>
             <tr>
               <th>Round</th>
