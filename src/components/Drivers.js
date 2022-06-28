@@ -24,13 +24,13 @@ export default class Drivers extends React.Component {
     }
 
     handleClickDetails = (id) => {
-        console.log("id", id)
+        // console.log("id", id)
         const url = `/driverDetails/${id}`
         // history.push(url)
     }
 
     render(){
-        console.log("state", this.state.drivers)
+        // console.log("state", this.state.drivers)
         return(
             <div>                
                 <table border={1}>

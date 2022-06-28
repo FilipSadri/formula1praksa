@@ -15,10 +15,10 @@ export default class DriverDetails extends React.Component {
     componentDidMount (){
         const location = window.location.href;
         const id = location.split("/").pop();
-        console.log("id", id)
+        // console.log("id", id)
         const url= `http://ergast.com/api/f1/2013/drivers/${id}/driverStandings.json`;
         $.get(url, (data)=>{
-            console.log("data",data)
+            // console.log("data",data)
             this.setState({
                 details: data.MRData.StandingsTable.StandingsLists[0].DriverStandings
             })
