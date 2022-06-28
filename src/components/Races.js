@@ -23,18 +23,32 @@ export default class Races extends React.Component {
     console.log("state", this.state.races);
     return (
       <div>
-        <table>
+        <table className="custom-table">
           <thead>
             <tr>
-              <td>Qualifying results</td>
+              <td colSpan={5}>Race Calendar-2013</td>
             </tr>
             <tr>
-              <th>Pos</th>
+              <th>Round</th>
+
+              <th>Grand Prix</th>
+              <th>Circuit</th>
+              <th>Date</th>
+              <th>Winner</th>
             </tr>
           </thead>
           <tbody>
             {this.state.races.map((race) => {
-              console.log(race.Results[0].Driver.familyName);
+              console.log(race.round);
+              return (
+                <tr key={race.round}>
+                  <td>{race.round}</td>
+                  <td>{race.raceName}</td>
+                  <td>{race.Circuit.circuitName}</td>
+                  <td>{race.date}</td>
+                  <td>{race.Results[0].Driver.familyName}</td>
+                </tr>
+              );
             })}
           </tbody>
         </table>
