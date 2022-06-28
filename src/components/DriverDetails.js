@@ -13,9 +13,10 @@ export default class DriverDetails extends React.Component {
     }
 
     componentDidMount (){
-        const location = window.location.href;
-        const id = location.split("/").pop();
-        // console.log("id", id)
+        //const location = window.location.href;
+        //const id = location.split("/").pop();
+        const id = this.props.match.params.driverId;
+        console.log("id", this.props.match.params.driverId)
         const url= `http://ergast.com/api/f1/2013/drivers/${id}/driverStandings.json`;
         $.get(url, (data)=>{
             // console.log("data",data)
