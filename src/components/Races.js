@@ -5,14 +5,16 @@ export default class Races extends React.Component {
   state = {
     races: [],
   };
+
   componentDidMount() {
     this.getRaces();
   }
+
   getRaces = () => {
-    console.log("data");
+    //console.log("data");
     const url = "http://ergast.com/api/f1/2013/results/1.json";
     $.get(url, (data) => {
-      console.log("data", data.MRData.RaceTable.Races);
+      //console.log("data", data.MRData.RaceTable.Races);
       this.setState({
         races: data.MRData.RaceTable.Races,
       });
@@ -20,7 +22,7 @@ export default class Races extends React.Component {
   };
 
   render() {
-    console.log("state", this.state.races);
+    //console.log("state", this.state.races);
     return (
       <div>
         <table className="custom-table">
@@ -41,7 +43,7 @@ export default class Races extends React.Component {
           </thead>
           <tbody>
             {this.state.races.map((race) => {
-              console.log(race.round);
+              //console.log(race.round);
               return (
                 <tr key={race.round}>
                   <td>{race.round}</td>
