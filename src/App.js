@@ -3,14 +3,15 @@ import Drivers from "./components/Drivers";
 import Teams from "./components/Teams";
 import Races from "./components/Races";
 import DriverDetails from "./components/DriverDetails";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Router, Switch, Route, Link } from "react-router-dom";
+import history from "./history";
 
 export default class App extends React.Component {
 
     render() {
         return (
             <div className="container">
-                <Router>
+                <Router history={history}>
                     <div>
                         <nav>
                             <ul>
@@ -25,12 +26,12 @@ export default class App extends React.Component {
                                 </li>
                             </ul>
                         </nav>
-                        <Routes>
-                            <Route path="/" element={<Drivers />} />
-                            <Route path="/driverDetails/:driverId" element={<DriverDetails/>}/>
-                            <Route path="/teams" element={<Teams />} />
-                            <Route path="/races" element={<Races />} />                           
-                        </Routes>
+                        <Switch>
+                            <Route path="/" exact component={Drivers} />
+                            <Route path="/driverDetails/:driverId" exact component={DriverDetails}/>
+                            <Route path="/teams" exact component={Teams} />
+                            <Route path="/races" exact component={Races} />                           
+                        </Switch>
                     </div>
                 </Router>
             </div>
