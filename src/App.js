@@ -2,6 +2,7 @@ import React from "react";
 import Drivers from "./components/Drivers";
 import Teams from "./components/Teams";
 import Races from "./components/Races";
+import DriverDetails from "./components/DriverDetails";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 export default class App extends React.Component {
@@ -26,8 +27,9 @@ export default class App extends React.Component {
                         </nav>
                         <Routes>
                             <Route path="/" element={<Drivers />} />
+                            <Route path="/driverDetails/:driverId" element={<DriverDetails/>}/>
                             <Route path="/teams" element={<Teams />} />
-                            <Route path="/races" element={<Races />} />
+                            <Route path="/races" element={<Races />} />                           
                         </Routes>
                     </div>
                 </Router>
