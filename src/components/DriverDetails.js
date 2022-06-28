@@ -7,14 +7,20 @@ export default class DriverDetails extends React.Component {
     state = {
         details: [
 
-        ]
+        ],
+         races: [
+
+         ]
 
         
     }
 
     componentDidMount (){
-        //const location = window.location.href;
-        //const id = location.split("/").pop();
+        this.getDriverDetails()
+        this.getRaceDetails()
+    }
+
+    getDriverDetails = ()=>{
         const id = this.props.match.params.driverId;
         console.log("id", this.props.match.params.driverId)
         const url= `http://ergast.com/api/f1/2013/drivers/${id}/driverStandings.json`;
@@ -26,8 +32,21 @@ export default class DriverDetails extends React.Component {
         })
     }
 
+    getRaceDetails = ()=>{
+        const id = this.props.match.params.driverId;
+        const url= `http://ergast.com/api/f1/2013/drivers/${id}/results.json`
+        $.get(url, (data)=>{
+            // console.log("data", data)
+            this.setState({
+                races: data.MRData.RaceTable.Races
+            })
+        })
+    }
+
     render() {
+        console.log("races", this.state.races)
         return (
+            
             <div>  
                 {this.state.details.map(detail=>{
                     return (
@@ -38,7 +57,34 @@ export default class DriverDetails extends React.Component {
                         <p>Country:{detail.Driver.nationality}</p>  
                     </div>
                 )           
-                })}             
+                })}
+
+                <table border={1}>
+                    <thead>
+                        <tr>
+                            <th colSpan={5}> Formula 1 2013 Results</th>
+                        </tr>
+                        <tr>
+                            <th>Round</th>
+                            <th>Grand Prix</th>
+                            <th>Team</th>
+                            <th>Grid</th>
+                            <th>Race</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {this.state.races.map(race=>
+                            <tr key={race.round}>
+                                <td>{race.round}</td>
+                                <td>{race.raceName}</td>
+                                <td>{race.Results[0].Constructor.name}</td>
+                                <td>{race.Results[0].grid}</td>
+                                <td>{race.Results[0].position}</td>
+                            </tr>
+                        )}             
+                    </tbody>        
+                </table>              
             </div>
        );
     }
