@@ -1,5 +1,7 @@
 import React from "react";
-import * as $ from "jquery"
+import { Link } from "react-router-dom";
+import * as $ from "jquery";
+import history from "./../history";
 
 export default class Drivers extends React.Component {
 
@@ -22,6 +24,12 @@ export default class Drivers extends React.Component {
         })
     }
 
+    handleClickDetails = (id) => {
+        console.log("id", id)
+        const url = `/driverDetails/${id}`
+        history.push(url);
+    }
+
     render(){
         console.log("state", this.state.drivers)
         return(
@@ -35,9 +43,9 @@ export default class Drivers extends React.Component {
 
                     <tbody >
                         {this.state.drivers.map(driver => 
-                            <tr key={driver.Driver.driverId}>
+                             <tr key={driver.Driver.driverId}  onClick={()=> this.handleClickDetails(driver.Driver.driverId)}>
                                 <td>{driver.position}</td>
-                                <td>{driver.Driver.givenName} {driver.Driver.familyName}</td>
+                                <td><Link to ={`/driverDetails/${driver.Driver.driverId}`}>{driver.Driver.givenName} {driver.Driver.familyName}</Link></td>
                                 <td>{driver.Constructors[0].name}</td>
                                 <td>{driver.points}</td>
                             </tr>
