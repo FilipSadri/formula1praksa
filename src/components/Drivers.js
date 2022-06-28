@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import * as $ from "jquery";
 import history from "./../history";
 
@@ -25,7 +24,6 @@ export default class Drivers extends React.Component {
     }
 
     handleClickDetails = (id) => {
-        //console.log("id", id)
         const url = `/driverDetails/${id}`
         history.push(url);
     }
