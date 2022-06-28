@@ -2,6 +2,7 @@ import React from 'react';
 import * as $ from 'jquery';
 
 
+
 export default class DriverDetails extends React.Component {
 
     state = {
@@ -44,7 +45,7 @@ export default class DriverDetails extends React.Component {
     }
 
     render() {
-        console.log("races", this.state.races)
+        // console.log("details", this.state.details)
         return (
             
             <div>  
