@@ -1,5 +1,6 @@
 import React from "react";
 import * as $ from "jquery";
+import history from "../history";
 
 export default class Races extends React.Component {
   state = {
@@ -14,15 +15,20 @@ export default class Races extends React.Component {
     //console.log("data");
     const url = "http://ergast.com/api/f1/2013/results/1.json";
     $.get(url, (data) => {
-      //console.log("data", data.MRData.RaceTable.Races);
+      // console.log("data", data.MRData.RaceTable.Races);
       this.setState({
-        races: data.MRData.RaceTable.Races,
+        races: data.MRData.RaceTable.Races
       });
     });
   };
 
+  handleRaceResults= (id) => {
+    const url = `/raceResults/${id}`;
+    history.push(url);
+  }
+
   render() {
-    //console.log("state", this.state.races);
+    // console.log("state", this.state.races);
     return (
       <div>
         <table className="custom-table">
@@ -45,7 +51,7 @@ export default class Races extends React.Component {
             {this.state.races.map((race) => {
               //console.log(race.round);
               return (
-                <tr key={race.round}>
+                <tr key={race.round} onClick={() => this.handleRaceResults(race.round)}>
                   <td>{race.round}</td>
                   <td>{race.raceName}</td>
                   <td>{race.Circuit.circuitName}</td>

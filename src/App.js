@@ -4,6 +4,7 @@ import Teams from "./components/Teams";
 import Races from "./components/Races";
 import DriverDetails from "./components/DriverDetails";
 import TeamDetails from "./components/TeamDetails";
+import RaceResults from "./components/RaceResults";
 import { Router, Switch, Route, Link } from "react-router-dom";
 import history from "./history";
 
@@ -32,7 +33,9 @@ export default class App extends React.Component {
                             <Route path="/driverDetails/:driverId" exact component={DriverDetails}/>
                             <Route path="/teams" exact component={Teams} />
                             <Route path="/teamDetails/:constructorId" exact component={TeamDetails}/>
-                            <Route path="/races" exact component={Races} />                           
+                            <Route path="/races" exact component={Races} /> 
+                            <Route path="/raceResults/:circuitId" exact component={RaceResults} />
+
                         </Switch>
                     </div>
                 </Router>
