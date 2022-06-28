@@ -2,6 +2,27 @@ body{
     background-color: #b8b8b8;
 }
 
+.custom-table{
+border-collapse: collapse;
+width: 100%;
+background-color: white;
+}
+
+.table-title{
+    background-color: #dddddd;
+    /* column-span: 5; */
+}
+
+.custom-table th{
+    text-align: left;
+    background-color: #dddddd;
+}
+
+
+tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
 
 
 
