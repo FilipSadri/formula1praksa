@@ -58,7 +58,7 @@ export default class Drivers extends React.Component {
 
 
     render(){
-        // console.log("state", this.state.drivers.Driver.driverId)
+        // console.log("zastave", this.state.driverFlags)
         return(
             <div>                
                 <table border={1}>
@@ -73,7 +73,8 @@ export default class Drivers extends React.Component {
                         {this.state.drivers.map(driver => 
                              <tr key={driver.Driver.driverId}  onClick={()=> this.handleClickDetails(driver.Driver.driverId)}>
                                 <td>{driver.position}</td>
-                                <td>{driver.Driver.givenName} {driver.Driver.familyName}</td>
+                                
+                                <td> <img src={require(`./../img/flags/${driver.Driver.nationality}.png`).default} /> {driver.Driver.givenName} {driver.Driver.familyName}</td>
                                 <td>{driver.Constructors[0].name}</td>
                                 <td>{driver.points}</td>
                             </tr>

@@ -53,7 +53,7 @@ export default class DriverDetails extends React.Component {
     //     })
     // }
     render() {
-        console.log("details", this.state.details)
+        console.log("details", this.state.races)
         return (
             <div>
                 {this.state.details.map(detail => {
@@ -61,10 +61,11 @@ export default class DriverDetails extends React.Component {
                         <div key={detail.Driver.driverId}>
                             <img src={require(`./../img/drivers/${detail.Driver.driverId}.jpg`).default} />
                             <h3>Driver details</h3>
-                            <p>Full Name:{detail.Driver.givenName} {detail.Driver.familyName}</p>
-                            <p>Birthday:{detail.Driver.dateOfBirth}</p>
-                            <p>Country:{detail.Driver.nationality}</p>
-                            <p>Biography:<a href={detail.Driver.url} target="_blank">Biography</a></p>
+                            <img src={require(`./../img/flags/${detail.Driver.nationality}.png`).default} />
+                            <p>{detail.Driver.givenName} {detail.Driver.familyName}</p>
+                            <p>{detail.Driver.dateOfBirth}</p>
+                            <p>{detail.Driver.nationality}</p>
+                            <p><a href={detail.Driver.url} target="_blank">Biography</a></p>
                         </div>
                     )
                 })}
@@ -87,7 +88,7 @@ export default class DriverDetails extends React.Component {
                         {this.state.races.map(race =>
                             <tr key={race.round}>
                                 <td>{race.round}</td>
-                                <td>{race.raceName}</td>
+                                <td> <img src={require(`./../img/flags/${race.raceName}.png`).default} /> {race.raceName}</td>
                                 <td>{race.Results[0].Constructor.name}</td>
                                 <td>{race.Results[0].grid}</td>
                                 <td>{race.Results[0].position}</td>
