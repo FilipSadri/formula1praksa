@@ -48,7 +48,6 @@ export default class DriverDetails extends React.Component {
     //         })
     //     })
     // }
-
     render() {
         // console.log("details", this.state.details)
         return (
@@ -56,6 +55,7 @@ export default class DriverDetails extends React.Component {
                 {this.state.details.map(detail => {
                     return (
                         <div key={detail.Driver.driverId}>
+                            <img src={'./../img/drivers/Adrian_Sutil.jpg'} alt="product" />
                             <h3>Driver details</h3>
                             <p>Full Name:{detail.Driver.givenName} {detail.Driver.familyName}</p>
                             <p>Birthday:{detail.Driver.dateOfBirth}</p>

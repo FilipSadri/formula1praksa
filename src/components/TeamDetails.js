@@ -5,7 +5,8 @@ import * as $ from "jquery";
 
 export default class TeamDetails extends React.Component {
     state = {
-        details: []
+        details: [],
+        //teams
     }
 
     componentDidMount() {
