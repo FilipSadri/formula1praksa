@@ -64,6 +64,7 @@ export default class DriverDetails extends React.Component {
                             <p>Full Name:{detail.Driver.givenName} {detail.Driver.familyName}</p>
                             <p>Birthday:{detail.Driver.dateOfBirth}</p>
                             <p>Country:{detail.Driver.nationality}</p>
+                            <p>Biography:<a href={detail.Driver.url} target="_blank">Biography</a></p>
                         </div>
                     )
                 })}
