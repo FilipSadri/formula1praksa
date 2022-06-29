@@ -65,12 +65,13 @@ export default class TeamDetails extends React.Component {
                 {this.state.details.map(team => {
                     return (
                         <div key={team.Constructor.constructorId}>
-                            <h3>Team details:</h3>
-                            <p>Team:{team.Constructor.name}</p>
+                            <div><img src={require(`./../img/teams/${team.Constructor.name}.png`).default} width={150}/></div>
+                            <div><img src={require(`./../img/flags/${team.Constructor.nationality}.png`).default}/></div>
+                            <div>{team.Constructor.name}</div>
                             <p>Country:{team.Constructor.nationality}</p>
                             <p>Position:{team.position}</p>
                             <p>Points:{team.points}</p>
-                            <p>History:{team.Constructor.url}</p>
+                            <p><a href={team.Constructor.url} target="_blank">History</a></p>
                         </div>
                     )
                 })}
@@ -93,7 +94,7 @@ export default class TeamDetails extends React.Component {
                         {this.state.teams.map(team =>
                         <tr key={team.round}>
                             <td>{team.round}</td>
-                            <td>{team.raceName}</td>
+                            <td><img src={require(`./../img/flags/${team.raceName}.png`).default}/>{team.raceName}</td>
                             <td>{team.Results[0].position}</td>
                             <td>{team.Results[1].position}</td>
                             <td>{parseInt(team.Results[0].points) + parseInt(team.Results[1].points)}</td>
