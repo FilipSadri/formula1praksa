@@ -4,37 +4,62 @@ import * as $ from "jquery";
 export default class TeamDetails extends React.Component {
     state = {
         details: [],
-        teams: []
+        teams: [],
+        isLoading: true
     }
 
     componentDidMount() {
-        this.getConstructorDetails();
-        this.getConstructorResults();
+        // this.getConstructorDetails();
+        // this.getConstructorResults();
+        this.getTeamDetails();
     }
 
-    getConstructorDetails = () => {
+    getTeamDetails = async () => {
         const id = this.props.match.params.constructorId;
-        //console.log("id", this.props.match.params.constructorId)
-        const url = `http://ergast.com/api/f1/2013/constructors/${id}/constructorStandings.json`
-        $.get(url, (data) => {
-            this.setState({
-                details: data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings
-            })
+        const constructorStandingsUrl = `http://ergast.com/api/f1/2013/constructors/${id}/constructorStandings.json`;
+        const resultsUrl = `http://ergast.com/api/f1/2013/constructors/${id}/results.json`;
+        const responseConstructorStandings = await fetch(constructorStandingsUrl);
+        const constructorStandings = await responseConstructorStandings.json();
+        const responseResults = await fetch(resultsUrl);
+        const results = await responseResults.json();
+        this.setState({
+            details: constructorStandings.MRData.StandingsTable.StandingsLists[0].ConstructorStandings,
+            teams: results.MRData.RaceTable.Races,
+            isLoading: false
         })
     }
+    
+    // getConstructorDetails = () => {
+    //     const id = this.props.match.params.constructorId;
+    //     //console.log("id", this.props.match.params.constructorId)
+    //     const url = `http://ergast.com/api/f1/2013/constructors/${id}/constructorStandings.json`
+    //     $.get(url, (data) => {
+    //         this.setState({
+    //             details: data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings,
+    //             isLoading: false
+    //         })
+    //     })
+    // }
 
-    getConstructorResults = () => {
-        const id = this.props.match.params.constructorId;
-        const url = `http://ergast.com/api/f1/2013/constructors/${id}/results.json`
-        $.get(url, (data) => {
-            console.log(data)
-            this.setState({
-                teams: data.MRData.RaceTable.Races
-            })
-        })
-    }
+    // getConstructorResults = () => {
+    //     const id = this.props.match.params.constructorId;
+    //     const url = `http://ergast.com/api/f1/2013/constructors/${id}/results.json`
+    //     $.get(url, (data) => {
+    //         console.log(data)
+    //         this.setState({
+    //             teams: data.MRData.RaceTable.Races,
+    //             isLoading: false
+    //         })
+    //     })
+    // }
 
     render() {
+
+        if(this.state.isLoading) {
+            return <h2>Loading...</h2>
+        }
+
+
         console.log("teams", this.state.teams)
         return (
             <div>

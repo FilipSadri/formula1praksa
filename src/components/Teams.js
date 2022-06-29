@@ -43,7 +43,7 @@ export default class Teams extends React.Component {
                                 <tr key={team.Constructor.constructorId} onClick={() => this.handleTeamsDetails(team.Constructor.constructorId)}>
                                     <td>{team.position}</td>
                                     <td>{team.Constructor.name}</td>
-                                    <td>{team.Constructor.url}</td>
+                                    <td><a href={team.Constructor.url} target="_blank">Details</a></td>
                                     <td>{team.points}</td>
                                 </tr>
                             )
