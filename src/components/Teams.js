@@ -1,6 +1,5 @@
 import React from "react";
 import * as $ from "jquery";
-import { Link } from "react-router-dom";
 import history from "../history";
 
 export default class Teams extends React.Component {
