@@ -1,11 +1,15 @@
 import React from 'react';
 import * as $ from 'jquery';
 
+
+
+
 export default class DriverDetails extends React.Component {
+
 
     state = {
         details: [],
-        races: []
+        races: [],
     }
 
     componentDidMount() {
@@ -48,14 +52,14 @@ export default class DriverDetails extends React.Component {
     //         })
     //     })
     // }
-
     render() {
-        // console.log("details", this.state.details)
+        console.log("details", this.state.details)
         return (
             <div>
                 {this.state.details.map(detail => {
                     return (
                         <div key={detail.Driver.driverId}>
+                            <img src={require(`./../img/drivers/${detail.Driver.driverId}.jpg`).default} />
                             <h3>Driver details</h3>
                             <p>Full Name:{detail.Driver.givenName} {detail.Driver.familyName}</p>
                             <p>Birthday:{detail.Driver.dateOfBirth}</p>

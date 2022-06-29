@@ -2,10 +2,13 @@ import React from "react";
 import * as $ from "jquery";
 import history from "./../history";
 
+
 export default class Drivers extends React.Component {
 
     state = {
-        drivers :[]
+        drivers :[],
+
+        driverImages: []
         
     }
     
@@ -28,8 +31,10 @@ export default class Drivers extends React.Component {
         history.push(url);
     }
 
+
+
     render(){
-        //console.log("state", this.state.drivers)
+        // console.log("state", this.state.drivers.Driver.driverId)
         return(
             <div>                
                 <table border={1}>
