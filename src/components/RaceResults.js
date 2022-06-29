@@ -4,13 +4,19 @@ import * as $ from "jquery";
 export default class RaceResults extends React.Component {
 
     state = {
-        details: []
+        details: [],
+        qualifyingResults: [],
+        racesResults: []
     }
 
     componentDidMount() {
-        const id = this.props.match.params.circuitId;
-        // console.log("id",this.props.match.params.raceName);
+        this.getRaceDetails();
+        this.getRaces();
+        this.getQualifyingResults();
+    }
 
+    getRaces = () => {
+        const id = this.props.match.params.circuitId;
         const url = `http://ergast.com/api/f1/2013/${id}/results.json`
 
         $.get(url, (data) => {
@@ -19,6 +25,29 @@ export default class RaceResults extends React.Component {
             })
         })
     }
+
+    getQualifyingResults = () => {
+        const id = this.props.match.params.circuitId;
+        const url = `http://ergast.com/api/f1/2013/${id}/qualifying.json`
+        console.log("id", id)
+
+        $.get(url, (data) => {
+            this.setState({
+                qualifyingResults: data.MRData.RaceTable.Races[0].QualifyingResults
+            })
+        })
+    }
+
+    getRaceDetails = () => {
+        const id = this.props.match.params.circuitId;
+        const url = `http://ergast.com/api/f1/2013/${id}/results.json`;
+
+        $.get(url, (data) => {
+            this.setState({
+                racesResults: data.MRData.RaceTable.Races[0].Results
+            });
+        });
+    };
 
     render() {
         return (
@@ -36,8 +65,11 @@ export default class RaceResults extends React.Component {
 
                 {/* tabela Qualifying Results */}
 
-                <table border={1}>
+                <table className="custom-table">
                     <thead>
+                        <tr>
+                            <td colSpan={4} className="table-title">Qualifying Results</td>
+                        </tr>
                         <tr>
                             <th>Pos</th>
                             <th>Driver</th>
@@ -46,16 +78,35 @@ export default class RaceResults extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td></td>
-                        </tr>
+                        {this.state.qualifyingResults.map((race) => {
+                            // console.log("race", race)
+                            let times = []
+                            times.push(race.Q1);
+                            times.push(race.Q2);
+                            times.push(race.Q3);
+                            times.sort();
+                            console.log(times);
+                            return (
+                                <tr key={race.position}>
+                                    <td>{race.position}</td>
+                                    <td>{race.Driver.familyName}</td>
+                                    <td>{race.Constructor.name}</td>
+                                    <td>{times[0]}</td>
+
+                                </tr>
+                            )
+                        })}
+
                     </tbody>
                 </table>
 
                 {/* tabela Race results */}
 
-                <table>
-                <thead>
+                <table className="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Race results</th>
+                        </tr>
                         <tr>
                             <th>Pos</th>
                             <th>Driver</th>
@@ -65,9 +116,19 @@ export default class RaceResults extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td></td>
-                        </tr>
+                        {this.state.racesResults.map((race) => {
+                            // console.log("race", race);
+                            return (
+                                <tr key={race.position}>
+                                    <td>{race.position}</td>
+                                    <td>{race.Driver.familyName}</td>
+                                    <td>{race.Constructor.name}</td>
+                                    <td>{race?.Time?.time}</td>
+                                    <td>{race.points}</td>
+                                </tr>
+                            )
+
+                        })}
                     </tbody>
                 </table>
 
