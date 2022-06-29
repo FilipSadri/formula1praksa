@@ -34,7 +34,7 @@ export default class Drivers extends React.Component {
 
 
     render(){
-        // console.log("state", this.state.driverImages)
+        // console.log("state", this.state.drivers.Driver.driverId)
         return(
             <div>                
                 <table border={1}>
