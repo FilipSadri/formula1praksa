@@ -80,7 +80,13 @@ export default class RaceResults extends React.Component {
         {this.state.details.map((race) => {
           return (
             <div key={race.Circuit.circuitId}>
-              <h3>Race Results:{race.raceName}</h3>
+              <h3>
+                {" "}
+                <img
+                  src={require(`./../img/flags/${race.raceName}.png`).default}
+                />{" "}
+                Race Results:{race.raceName}
+              </h3>
               <p>Country: {race.Circuit.Location.country}</p>
               <p>Location:{race.Circuit.Location.locality}</p>
               <p>Date:{race.date}</p>
@@ -116,7 +122,15 @@ export default class RaceResults extends React.Component {
               return (
                 <tr key={race.position}>
                   <td>{race.position}</td>
-                  <td>{race.Driver.familyName}</td>
+                  <td>
+                    <img
+                      src={
+                        require(`./../img/flags/${race.Driver.nationality}.png`)
+                          .default
+                      }
+                    />
+                    {race.Driver.familyName}
+                  </td>
                   <td>{race.Constructor.name}</td>
                   <td>{times[0]}</td>
                 </tr>
@@ -146,7 +160,15 @@ export default class RaceResults extends React.Component {
               return (
                 <tr key={race.position}>
                   <td>{race.position}</td>
-                  <td>{race.Driver.familyName}</td>
+                  <td>
+                    <img
+                      src={
+                        require(`./../img/flags/${race.Driver.nationality}.png`)
+                          .default
+                      }
+                    />
+                    {race.Driver.familyName}
+                  </td>
                   <td>{race.Constructor.name}</td>
                   <td>{race?.Time?.time}</td>
                   <td>{race.points}</td>
