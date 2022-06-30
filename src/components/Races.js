@@ -17,15 +17,15 @@ export default class Races extends React.Component {
     $.get(url, (data) => {
       // console.log("data", data.MRData.RaceTable.Races);
       this.setState({
-        races: data.MRData.RaceTable.Races
+        races: data.MRData.RaceTable.Races,
       });
     });
   };
 
-  handleRaceResults= (id) => {
+  handleRaceResults = (id) => {
     const url = `/raceResults/${id}`;
     history.push(url);
-  }
+  };
 
   render() {
     // console.log("state", this.state.races);
@@ -51,12 +51,31 @@ export default class Races extends React.Component {
             {this.state.races.map((race) => {
               //console.log(race.round);
               return (
-                <tr key={race.round} onClick={() => this.handleRaceResults(race.round)}>
+                <tr
+                  key={race.round}
+                  onClick={() => this.handleRaceResults(race.round)}
+                >
                   <td>{race.round}</td>
-                  <td>{race.raceName}</td>
+                  <td>
+                    <img
+                      src={
+                        require(`./../img/flags/${race.raceName}.png`).default
+                      }
+                    />{" "}
+                    {race.raceName}
+                    {race.raceName}
+                  </td>
                   <td>{race.Circuit.circuitName}</td>
                   <td>{race.date}</td>
-                  <td>{race.Results[0].Driver.familyName}</td>
+                  <td>
+                    <img
+                      src={
+                        require(`./../img/flags/${race.Results[0].Driver.nationality}.png`)
+                          .default
+                      }
+                    />
+                    {race.Results[0].Driver.familyName}
+                  </td>
                 </tr>
               );
             })}
