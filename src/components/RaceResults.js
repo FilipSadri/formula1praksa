@@ -106,7 +106,7 @@ export default class RaceResults extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="drivers-wrap">
         {this.state.details.map((race) => {
           return (
             <div key={race.Circuit.circuitId}>

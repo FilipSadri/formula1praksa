@@ -128,17 +128,23 @@ export default class DriverDetails extends React.Component {
         }
 
         return (
-            <div>
+            <div className='drivers-wrap'>
                 {this.state.details.map(detail => {
                     return (
-                        <div key={detail.Driver.driverId}>
-                            <img src={require(`./../img/drivers/${detail.Driver.driverId}.jpg`).default} />
+                        <div className='driver-bio' key={detail.Driver.driverId}>
                             <h3>Driver details</h3>
-                            <img src={require(`./../img/flags/${detail.Driver.nationality}.png`).default} />
-                            <p>{detail.Driver.givenName} {detail.Driver.familyName}</p>
-                            <p>{detail.Driver.dateOfBirth}</p>
-                            <p>{detail.Driver.nationality}</p>
-                            <p><a href={detail.Driver.url} target="_blank">Biography</a></p>
+                            <div className='drivers-details'>
+                                <img className='drivers-photo' src={require(`./../img/drivers/${detail.Driver.driverId}.jpg`).default} />
+                                <div className='drivers-data'>
+                                    <img src={require(`./../img/flags/${detail.Driver.nationality}.png`).default} />
+                                    <p>{detail.Driver.givenName} {detail.Driver.familyName}</p>
+                                </div>
+                            </div>
+                            <div className='drivers-info'>
+                                <p>{detail.Driver.dateOfBirth}</p>
+                                <p>{detail.Driver.nationality}</p>
+                                <p><a href={detail.Driver.url} target="_blank">Biography</a></p>
+                            </div>
                         </div>
                     )
                 })}

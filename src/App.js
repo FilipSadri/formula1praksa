@@ -13,26 +13,29 @@ export default class App extends React.Component {
     render() {
         return (
             <Router history={history}>
-                <div>
-                    <ul class="nav nav-tabs justify-content-center">
-                    <li class="nav-item">
-                        <Link className="nav-link" to="/"> <img className="driveLogo" src={require(`./img/Logo/safety.png`).default} />Drivers</Link>           
-                    </li>
-                    <li class="nav-item">
-                        <Link className="nav-link" to="/teams"><img className="teamLogo" src={require(`./img/Logo/car.png`).default} />Teams</Link>           
-                    </li>
-                    <li class="nav-item">
-                        <Link className="nav-link" to="/races"><img className="raceLogo" src={require(`./img/Logo/flag.png`).default} />Races</Link>         
-                    </li>
-                    </ul>
-                    <Switch>
-                        <Route path="/" exact component={Drivers} />
-                        <Route path="/driverDetails/:driverId" exact component={DriverDetails}/>
-                        <Route path="/teams" exact component={Teams} />
-                        <Route path="/teamDetails/:constructorId" exact component={TeamDetails}/>
-                        <Route path="/races" exact component={Races} /> 
-                        <Route path="/raceResults/:circuitId" exact component={RaceResults} />
-                    </Switch>
+                <div className="wrap">
+                    <div className="sidebar">
+                            <Link className="nav-link" to="/"> <img className="mainLogo" src={require(`./img/Logo/logoF1.jpg`).default} /></Link> 
+                        <ul class="navigation nav nav-tabs">
+                        <li class="nav-item">
+                            <Link className="nav-link" to="/"> <img className="driveLogo" src={require(`./img/Logo/safety.png`).default} />Drivers</Link>           
+                        </li>
+                        <li class="nav-item">
+                            <Link className="nav-link" to="/teams"><img className="teamLogo" src={require(`./img/Logo/car.png`).default} />Teams</Link>           
+                        </li>
+                        <li class="nav-item">
+                            <Link className="nav-link" to="/races"><img className="raceLogo" src={require(`./img/Logo/flag.png`).default} />Races</Link>         
+                        </li>
+                        </ul>
+                        </div> 
+                        <Switch>
+                            <Route path="/" exact component={Drivers} />
+                            <Route path="/driverDetails/:driverId" exact component={DriverDetails}/>
+                            <Route path="/teams" exact component={Teams} />
+                            <Route path="/teamDetails/:constructorId" exact component={TeamDetails}/>
+                            <Route path="/races" exact component={Races} /> 
+                            <Route path="/raceResults/:circuitId" exact component={RaceResults} />
+                        </Switch>
                 </div>
             </Router>
         );

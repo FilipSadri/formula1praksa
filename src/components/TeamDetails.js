@@ -101,7 +101,7 @@ export default class TeamDetails extends React.Component {
 
         // console.log("teams", this.state.teams)
         return (
-            <div>
+            <div className="drivers-wrap">
                 {this.state.details.map(team => {
                     return (
                         <div key={team.Constructor.constructorId}>

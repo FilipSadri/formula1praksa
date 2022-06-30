@@ -47,8 +47,8 @@ export default class Drivers extends React.Component {
     render(){
         // console.log("zastave", this.state.driverFlags)
         return(
-            <div>     
-                <h2 >Drivers Championship</h2>               
+            <div className="details-wrap">     
+                <h2 className="title" >Drivers Championship</h2>               
                 <table className="table table-bordered">
                     <thead>
                         <tr>
