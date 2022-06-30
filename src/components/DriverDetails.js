@@ -53,7 +53,7 @@ export default class DriverDetails extends React.Component {
     //     })
     // }
     render() {
-        console.log("details", this.state.races)
+        // console.log("details", this.state.races)
         return (
             <div>
                 {this.state.details.map(detail => {

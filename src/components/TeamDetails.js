@@ -59,7 +59,7 @@ export default class TeamDetails extends React.Component {
             return <h2>Loading...</h2>
         }
 
-        console.log("teams", this.state.teams)
+        // console.log("teams", this.state.teams)
         return (
             <div>
                 {this.state.details.map(team => {

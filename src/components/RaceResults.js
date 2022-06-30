@@ -112,7 +112,7 @@ export default class RaceResults extends React.Component {
               times.push(race.Q2);
               times.push(race.Q3);
               times.sort();
-              console.log(times);
+              // console.log(times);
               return (
                 <tr key={race.position}>
                   <td>{race.position}</td>
