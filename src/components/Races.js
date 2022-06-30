@@ -31,10 +31,10 @@ export default class Races extends React.Component {
     // console.log("state", this.state.races);
     return (
       <div>
-        <table className="custom-table">
+        <table className="table table-bordered">
           <thead>
             <tr>
-              <td colSpan={5} className="table-title">
+              <td scope="col" colSpan={5} >
                 Race Calendar-2013
               </td>
             </tr>

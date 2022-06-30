@@ -30,10 +30,10 @@ export default class Teams extends React.Component {
     render() {
         return (
             <div>
-                <table>
+                <table className="table table-bordered">
                     <thead>
                         <tr>
-                            <th colSpan={3}>Constructor Championship Standing - 2013</th>
+                            <th scope="col" colSpan={3}>Constructor Championship Standing - 2013</th>
                         </tr>
                     </thead>
                     <tbody>

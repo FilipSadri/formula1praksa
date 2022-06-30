@@ -96,18 +96,18 @@ export default class RaceResults extends React.Component {
 
         {/* tabela Qualifying Results */}
 
-        <table className="custom-table">
+        <table className="table table-bordered">
           <thead>
             <tr>
-              <td colSpan={4} className="table-title">
+              <th scope="col" colSpan={4}>
                 Qualifying Results
-              </td>
+              </th>
             </tr>
             <tr>
-              <th>Pos</th>
-              <th>Driver</th>
-              <th>Team</th>
-              <th>Best Time</th>
+              <th scope="col">Pos</th>
+              <th scope="col">Driver</th>
+              <th scope="col">Team</th>
+              <th scope="col">Best Time</th>
             </tr>
           </thead>
           <tbody>
@@ -141,17 +141,17 @@ export default class RaceResults extends React.Component {
 
         {/* tabela Race results */}
 
-        <table className="custom-table">
+        <table className="table table-bordered">
           <thead>
             <tr>
-              <th>Race results</th>
+              <th scope="col" colSpan={5}>Race results</th>
             </tr>
             <tr>
-              <th>Pos</th>
-              <th>Driver</th>
-              <th>Team</th>
-              <th>Result</th>
-              <th>Points</th>
+              <th scope="col">Pos</th>
+              <th scope="col">Driver</th>
+              <th scope="col">Team</th>
+              <th scope="col">Result</th>
+              <th scope="col">Points</th>
             </tr>
           </thead>
           <tbody>

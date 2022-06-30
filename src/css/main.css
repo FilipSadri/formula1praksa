@@ -1,67 +1,21 @@
-body{
-    background-color: #b8b8b8;
+.driveLogo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
 }
 
-.custom-table{
-border-collapse: collapse;
-width: 100%;
-background-color: white;
+.teamLogo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
 }
 
-.table-title{
-    background-color: #dddddd;
-    /* column-span: 5; */
-}
-
-.custom-table th{
-    text-align: left;
-    background-color: #dddddd;
+.raceLogo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
 }
 
 
-tr:nth-child(even) {
-    background-color: #fafafa;
-}
-
-/* .tableDriver {
-    margin-left: auto; 
-    margin-right: auto;
-    width: 1000px;
-}
-
-.tableDriver thead {
-    text-align: left;
-}
-
-.title {
-    text-align: center;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin-right: 500px;
-    color: #fcfcfc;
-    font-weight:bolder;
-    font-style: oblique;
-    font-size:3em;
-} */
-
- #offcanvas{
-    width: 217px;
-    top: -15px;
-    left: -15px;
- }
-
- /* .formulaLogo {
-    height: 300px;
- } */
-
- /* .offcanvas.offcanvas-start {
-    top: -15px;
-    left: -15px;
- } */
-
-
-.offcanvas-body {
-    background-color: #35333e;
-    margin-top: -15px;
-}
 
 

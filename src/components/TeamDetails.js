@@ -76,10 +76,10 @@ export default class TeamDetails extends React.Component {
                     )
                 })}
 
-                <table border={1}>
+                <table className="table table-bordered">
                     <thead>
                         <tr>
-                            <th colSpan={5}>Formula 1 2013 Results</th>
+                            <th scope="col" colSpan={5}>Formula 1 2013 Results</th>
                         </tr>
                         <tr>
                             <th>Round</th>

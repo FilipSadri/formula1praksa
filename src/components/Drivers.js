@@ -47,18 +47,7 @@ export default class Drivers extends React.Component {
     render(){
         // console.log("zastave", this.state.driverFlags)
         return(
-            <div> 
-                {/* POCETAK SIDEBAR */}
-                <div className="offcanvas offcanvas-start show" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
-                    <div className="offcanvas-header">
-                        <h5 className="offcanvas-title" id="offcanvasLabel"><img className="formulaLogo" src={require(`./../img/Logo/logoF1.jpg`).default}/></h5>
-                    </div>
-                    <div className="offcanvas-body">
-                    
-                    </div>
-                    </div>
-                {/* KRAJ SIDEBAR */}
-                
+            <div>     
                 <h2 >Drivers Championship</h2>               
                 <table className="table table-bordered">
                     <thead>
