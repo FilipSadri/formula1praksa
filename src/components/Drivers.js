@@ -19,14 +19,10 @@ export default class Drivers extends React.Component {
 
     getDriversInfo = async () => {
         const driverStandingsUrl = "http://ergast.com/api/f1/2013/driverStandings.json"
-        const countriesUrl = "https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json"
         const responseDriverStandings = await fetch(driverStandingsUrl)
         const driverStandings = await responseDriverStandings.json();
-        const responseCountries = await fetch(countriesUrl);
-        const countries = await responseCountries.json();
         this.setState({
             drivers: driverStandings.MRData.StandingsTable.StandingsLists[0].DriverStandings,
-            driverFlags: countries
         })
     }
 
@@ -40,15 +36,6 @@ export default class Drivers extends React.Component {
     //     })
     // }
 
-    // getFlags = () => {
-    //     const url = "https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json"
-    //     $.get(url, (data)=>{
-    //         console.log("flags", data)
-    //         this.setState({
-    //             driverFlags: data
-    //         })
-    //     })
-    // }
 
     handleClickDetails = (id) => {
         const url = `/driverDetails/${id}`
@@ -60,11 +47,23 @@ export default class Drivers extends React.Component {
     render(){
         // console.log("zastave", this.state.driverFlags)
         return(
-            <div>                
-                <table border={1}>
+            <div> 
+                {/* POCETAK SIDEBAR */}
+                <div className="offcanvas offcanvas-start show" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+                    <div className="offcanvas-header">
+                        <h5 className="offcanvas-title" id="offcanvasLabel"><img className="formulaLogo" src={require(`./../img/Logo/logoF1.jpg`).default}/></h5>
+                    </div>
+                    <div className="offcanvas-body">
+                    
+                    </div>
+                    </div>
+                {/* KRAJ SIDEBAR */}
+                
+                <h2 >Drivers Championship</h2>               
+                <table className="table table-bordered">
                     <thead>
                         <tr>
-                            <th colSpan={4}> Drivers Championship Standings - 2013</th>
+                            <th scope="col" colSpan={4}> Drivers Championship Standings - 2013</th>
                         </tr>
                     </thead>
 

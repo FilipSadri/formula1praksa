@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "antd": "^4.20.5",
+    "bootstrap": "^5.2.0-beta1",
     "jquery": "^3.6.0",
     "prop-types": "^15.8.1",
     "react-router-dom": "^5.3.1",
