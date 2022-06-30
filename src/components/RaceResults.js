@@ -74,6 +74,36 @@ export default class RaceResults extends React.Component {
   //     });
   // };
 
+  setColor = (position) => {
+    let color = "";
+    console.log("position", position);
+    switch (position) {
+      case "25":
+        color = "yellow";
+        break;
+      case "18":
+        color = "gray";
+        break;
+      case "15":
+        color = "orange";
+        break;
+      case "12":
+      case "10":
+      case "8":
+      case "6":
+      case "4":
+      case "2":
+      case "1":
+        color = "lightgreen";
+        break;
+
+      default:
+        color = "darkgrey";
+        break;
+    }
+    return color;
+  };
+
   render() {
     return (
       <div>
@@ -171,7 +201,9 @@ export default class RaceResults extends React.Component {
                   </td>
                   <td>{race.Constructor.name}</td>
                   <td>{race?.Time?.time}</td>
-                  <td>{race.points}</td>
+                  <td style={{ backgroundColor: this.setColor(race.points) }}>
+                    {race.points}
+                  </td>
                 </tr>
               );
             })}

@@ -52,6 +52,46 @@ export default class TeamDetails extends React.Component {
     //         })
     //     })
     // }
+    setColor = (position) => {
+        let color = "";
+        console.log("position", position)
+        switch (position) {
+            case "1":
+                color = "yellow";
+                break;
+            case "2":
+                color = "gray";
+                break; 
+            case "3":
+                color = "orange";
+                break; 
+            case "4":
+                color = "lightgreen";
+                break; 
+            case "5":
+                color = "lightblue";
+                break; 
+            case "6":
+                color = "aqua";
+                break; 
+            case "7":
+                color = "red";
+                break; 
+            case "8":
+                color = "brown";
+                break; 
+            case "9":
+                color = "cyan";
+                break; 
+            case "10":
+                color = "coral";
+                break;
+            default:
+                color = "darkgrey";
+                break;
+        }
+        return color;
+    }
 
     render() {
 
@@ -95,8 +135,8 @@ export default class TeamDetails extends React.Component {
                         <tr key={team.round}>
                             <td>{team.round}</td>
                             <td><img src={require(`./../img/flags/${team.raceName}.png`).default}/>{team.raceName}</td>
-                            <td>{team.Results[0].position}</td>
-                            <td>{team.Results[1].position}</td>
+                            <td style={{ "backgroundColor": this.setColor(team.Results[0].position) }}>{team.Results[0].position}</td>
+                            <td style={{ "backgroundColor": this.setColor(team.Results[1].position) }}>{team.Results[1].position}</td>
                             <td>{parseInt(team.Results[0].points) + parseInt(team.Results[1].points)}</td>
                         </tr>
                         )}
