@@ -1,15 +1,13 @@
 import React from 'react';
 import * as $ from 'jquery';
 
-
-
-
 export default class DriverDetails extends React.Component {
 
 
     state = {
         details: [],
         races: [],
+        isLoading: true
     }
 
     componentDidMount() {
@@ -26,7 +24,8 @@ export default class DriverDetails extends React.Component {
         const results = await responseResults.json();
         this.setState({
             details: driverStandings.MRData.StandingsTable.StandingsLists[0].DriverStandings,
-            races: results.MRData.RaceTable.Races
+            races: results.MRData.RaceTable.Races,
+            isLoading: false
         })
     }
 
@@ -52,8 +51,82 @@ export default class DriverDetails extends React.Component {
     //         })
     //     })
     // }
+    // setColor = () => {
+    //     let colors = "";
+    //     this.state.races.map(race =>{
+    //         // console.log("races", race.Results[0].position)
+    //         if (race.Results[0].position == 1) {
+    //             colors = `<td style={{"backgroundColor":"yellow"}}>{race.Results[0].position}</td>`;
+    //         } else if (race.Results[0].position == 2){
+    //             return (<td style={{"backgroundColor":"gray"}}>{race.Results[0].position}</td>)
+    //         } else if (race.Results[0].position == 3){
+    //             return (<td style={{"backgroundColor":"orange"}}>{race.Results[0].position}</td>)
+    //         } else if (race.Results[0].position == 4){
+    //             return (<td style={{"backgroundColor":"lightgreen"}}>{race.Results[0].position}</td>)
+    //         } else if (race.Results[0].position == 5){
+    //             return (<td style={{"backgroundColor":"lightblue"}}>{race.Results[0].position}</td>)
+    //         }else if (race.Results[0].position == 6){
+    //             return (<td style={{"backgroundColor":"aqua"}}>{race.Results[0].position}</td>)
+    //         }else if (race.Results[0].position == 7){
+    //             return (<td style={{"backgroundColor":"lightcoral"}}>{race.Results[0].position}</td>)
+    //         }else if (race.Results[0].position == 8){
+    //             return (<td style={{"backgroundColor":"lightcyan"}}>{race.Results[0].position}</td>)
+    //         }else if (race.Results[0].position == 9){
+    //             return (<td style={{"backgroundColor":"lightpink"}}>{race.Results[0].position}</td>)
+    //         }else if (race.Results[0].position == 10){
+    //             return (<td style={{"backgroundColor":"lightsalmon"}}>{race.Results[0].position}</td>)
+    //         }
+    //     })
+    //     return colors;
+    // }
+
+    setColor = (position) => {
+        let color = "";
+        console.log("position", position)
+        switch (position) {
+            case "1":
+                color = "yellow";
+                break;
+            case "2":
+                color = "gray";
+                break; 
+            case "3":
+                color = "orange";
+                break; 
+            case "4":
+                color = "lightgreen";
+                break; 
+            case "5":
+                color = "lightblue";
+                break; 
+            case "6":
+                color = "aqua";
+                break; 
+            case "7":
+                color = "red";
+                break; 
+            case "8":
+                color = "brown";
+                break; 
+            case "9":
+                color = "cyan";
+                break; 
+            case "10":
+                color = "coral";
+                break;
+            default:
+                color = "darkgrey";
+                break;
+        }
+        return color;
+    }
+
     render() {
-        // console.log("details", this.state.races)
+
+        if (this.state.isLoading) {
+            return <h2>Loading...</h2>
+        }
+
         return (
             <div>
                 {this.state.details.map(detail => {
@@ -91,7 +164,7 @@ export default class DriverDetails extends React.Component {
                                 <td> <img src={require(`./../img/flags/${race.raceName}.png`).default} /> {race.raceName}</td>
                                 <td>{race.Results[0].Constructor.name}</td>
                                 <td>{race.Results[0].grid}</td>
-                                <td>{race.Results[0].position}</td>
+                                <td style={{ "backgroundColor": this.setColor(race.Results[0].position) }}>{race.Results[0].position}</td>
                             </tr>
                         )}
                     </tbody>
