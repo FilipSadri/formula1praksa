@@ -16,14 +16,14 @@ export default class App extends React.Component {
                 <div className="wrap">
                     <div className="sidebar">
                             <Link className="nav-link" to="/"> <img className="mainLogo" src={require(`./img/Logo/logoF1.jpg`).default} /></Link> 
-                        <ul class="navigation nav nav-tabs">
-                        <li class="nav-item">
+                        <ul className="navigation nav nav-tabs">
+                        <li className="nav-item">
                             <Link className="nav-link" to="/"> <img className="driveLogo" src={require(`./img/Logo/safety.png`).default} />Drivers</Link>           
                         </li>
-                        <li class="nav-item">
+                        <li className="nav-item">
                             <Link className="nav-link" to="/teams"><img className="teamLogo" src={require(`./img/Logo/car.png`).default} />Teams</Link>           
                         </li>
-                        <li class="nav-item">
+                        <li className="nav-item">
                             <Link className="nav-link" to="/races"><img className="raceLogo" src={require(`./img/Logo/flag.png`).default} />Races</Link>         
                         </li>
                         </ul>
