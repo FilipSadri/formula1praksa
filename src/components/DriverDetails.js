@@ -1,4 +1,6 @@
 import React from 'react';
+import { BsBook } from "react-icons/bs";
+import CircleLoader from "react-spinners/CircleLoader";
 
 export default class DriverDetails extends React.Component {
     state = {
@@ -69,7 +71,11 @@ export default class DriverDetails extends React.Component {
     render() {
 
         if (this.state.isLoading) {
-            return <h2>Loading...</h2>
+            return (
+                <div className='loader-container'>
+                    <CircleLoader />
+                </div>
+            )
         }
 
         return (
@@ -88,7 +94,7 @@ export default class DriverDetails extends React.Component {
                             <div className='drivers-info'>
                                 <p>{detail.Driver.dateOfBirth}</p>
                                 <p>{detail.Driver.nationality}</p>
-                                <p><a href={detail.Driver.url} target="_blank">Biography</a></p>
+                                <p>Biography: <a className='button' href={detail.Driver.url} target="_blank"> <BsBook/></a></p>
                             </div>
                         </div>
                     )
