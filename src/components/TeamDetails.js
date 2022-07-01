@@ -1,4 +1,7 @@
 import React from "react";
+import { BsBook } from "react-icons/bs";
+import CircleLoader from "react-spinners/CircleLoader";
+
 
 export default class TeamDetails extends React.Component {
   state = {
@@ -69,7 +72,11 @@ export default class TeamDetails extends React.Component {
 
   render() {
     if (this.state.isLoading) {
-      return <h2>Loading...</h2>;
+      return (
+        <div className='loader-container'>
+                    <CircleLoader />
+                </div>
+      )
     }
 
     return (
@@ -98,9 +105,9 @@ export default class TeamDetails extends React.Component {
               <p>Country:{team.Constructor.nationality}</p>
               <p>Position:{team.position}</p>
               <p>Points:{team.points}</p>
-              <p>
-                <a href={team.Constructor.url} target="_blank">
-                  History
+              <p>History: 
+                <a className='button' href={team.Constructor.url} target="_blank">
+                 <BsBook/> 
                 </a>
               </p>
             </div>
