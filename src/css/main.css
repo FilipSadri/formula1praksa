@@ -36,7 +36,10 @@
     display: flex;
     flex-direction: column;
     background-color: #565656;
+}
 
+.heightTeamsSideBar{
+    height: 100vh;
 }
 
 .navigation {
