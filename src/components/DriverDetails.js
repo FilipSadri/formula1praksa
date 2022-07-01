@@ -81,6 +81,7 @@ export default class DriverDetails extends React.Component {
         return (
             <div className='drivers-wrap'>
                 {this.state.details.map(detail => {
+                console.log("details",this.state.details)
                     return (
                         <div className='driver-bio' key={detail.Driver.driverId}>
                             <h3>Driver details</h3>
@@ -92,8 +93,9 @@ export default class DriverDetails extends React.Component {
                                 </div>
                             </div>
                             <div className='drivers-info'>
-                                <p>{detail.Driver.dateOfBirth}</p>
-                                <p>{detail.Driver.nationality}</p>
+                                <p>Country:{detail.Driver.nationality}</p>
+                                <p>Team: {detail.Constructors[0].name}</p>
+                                <p>Birth: {detail.Driver.dateOfBirth}</p>
                                 <p>Biography: <a className='button' href={detail.Driver.url} target="_blank"> <BsBook/></a></p>
                             </div>
                         </div>
