@@ -109,7 +109,7 @@ export default class RaceResults extends React.Component {
       <div className="drivers-wrap">
         {this.state.details.map((race) => {
           return (
-            <div key={race.Circuit.circuitId}>
+            <div className="driver-bio" key={race.Circuit.circuitId}>
               <h3>
                 {" "}
                 <img
@@ -174,7 +174,9 @@ export default class RaceResults extends React.Component {
         <table className="table table-bordered">
           <thead>
             <tr>
-              <th scope="col" colSpan={5}>Race results</th>
+              <th scope="col" colSpan={5}>
+                Race results
+              </th>
             </tr>
             <tr>
               <th scope="col">Pos</th>
