@@ -4,7 +4,7 @@ import history from "../history";
 
 export default class Races extends React.Component {
   state = {
-    races: [],
+    races: []
   };
 
   componentDidMount() {
@@ -12,12 +12,10 @@ export default class Races extends React.Component {
   }
 
   getRaces = () => {
-    //console.log("data");
     const url = "http://ergast.com/api/f1/2013/results/1.json";
     $.get(url, (data) => {
-      // console.log("data", data.MRData.RaceTable.Races);
       this.setState({
-        races: data.MRData.RaceTable.Races,
+        races: data.MRData.RaceTable.Races
       });
     });
   };
@@ -28,7 +26,6 @@ export default class Races extends React.Component {
   };
 
   render() {
-    // console.log("state", this.state.races);
     return (
       <div>
         <table className="table table-bordered">
@@ -40,7 +37,6 @@ export default class Races extends React.Component {
             </tr>
             <tr>
               <th>Round</th>
-
               <th>Grand Prix</th>
               <th>Circuit</th>
               <th>Date</th>
@@ -49,7 +45,6 @@ export default class Races extends React.Component {
           </thead>
           <tbody>
             {this.state.races.map((race) => {
-              //console.log(race.round);
               return (
                 <tr
                   key={race.round}
@@ -61,8 +56,7 @@ export default class Races extends React.Component {
                       src={
                         require(`./../img/flags/${race.raceName}.png`).default
                       }
-                    />{" "}
-                    {race.raceName}
+                    />
                     {race.raceName}
                   </td>
                   <td>{race.Circuit.circuitName}</td>

@@ -1,19 +1,13 @@
 import React from "react";
-import * as $ from "jquery";
 import history from "./../history";
-
-
 
 export default class Drivers extends React.Component {
 
     state = {
-        drivers :[],
-
-        driverFlags: []
-        
+        drivers: []
     }
-    
-    componentDidMount(){
+
+    componentDidMount() {
         this.getDriversInfo()
     }
 
@@ -22,33 +16,19 @@ export default class Drivers extends React.Component {
         const responseDriverStandings = await fetch(driverStandingsUrl)
         const driverStandings = await responseDriverStandings.json();
         this.setState({
-            drivers: driverStandings.MRData.StandingsTable.StandingsLists[0].DriverStandings,
+            drivers: driverStandings.MRData.StandingsTable.StandingsLists[0].DriverStandings
         })
     }
-
-    // getDrivers = () => {
-    //     const url = "http://ergast.com/api/f1/2013/driverStandings.json"
-    //     $.get(url, (data)=>{
-    //         // console.log("data", data)s
-    //         this.setState({
-    //             drivers: data.MRData.StandingsTable.StandingsLists[0].DriverStandings               
-    //         })          
-    //     })
-    // }
-
 
     handleClickDetails = (id) => {
         const url = `/driverDetails/${id}`
         history.push(url);
     }
 
-
-
-    render(){
-        // console.log("zastave", this.state.driverFlags)
-        return(
-            <div className="details-wrap">     
-                <h2 className="title" >Drivers Championship</h2>               
+    render() {
+        return (
+            <div className="details-wrap">
+                <h2 className="title" >Drivers Championship</h2>
                 <table className="table table-bordered">
                     <thead>
                         <tr>
@@ -57,22 +37,17 @@ export default class Drivers extends React.Component {
                     </thead>
 
                     <tbody>
-                        
-                        {this.state.drivers.map(driver => 
-                             <tr key={driver.Driver.driverId}  onClick={()=> this.handleClickDetails(driver.Driver.driverId)}>
+                        {this.state.drivers.map(driver =>
+                            <tr key={driver.Driver.driverId} onClick={() => this.handleClickDetails(driver.Driver.driverId)}>
                                 <td>{driver.position}</td>
-                                
                                 <td> <img src={require(`./../img/flags/${driver.Driver.nationality}.png`).default} /> {driver.Driver.givenName} {driver.Driver.familyName}</td>
                                 <td>{driver.Constructors[0].name}</td>
                                 <td>{driver.points}</td>
                             </tr>
-                            )}
+                        )}
                     </tbody>
-                    
-                </table>              
+                </table>
             </div>
-            )
-        }
+        )
     }
-    
-    
+}

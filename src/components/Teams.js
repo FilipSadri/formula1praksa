@@ -15,7 +15,6 @@ export default class Teams extends React.Component {
     getPosts = () => {
         const url = "http://ergast.com/api/f1/2013/constructorStandings.json";
         $.get(url, (data) => {
-            //console.log("data", data);
             this.setState({
                 teams: data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings
             });
@@ -33,12 +32,11 @@ export default class Teams extends React.Component {
                 <table className="table table-bordered">
                     <thead>
                         <tr>
-                            <th scope="col" colSpan={3}>Constructor Championship Standing - 2013</th>
+                            <th scope="col" colSpan={4}>Constructor Championship Standing - 2013</th>
                         </tr>
                     </thead>
                     <tbody>
                         {this.state.teams.map(team => {
-                            // console.log(team)
                             return (
                                 <tr key={team.Constructor.constructorId} onClick={() => this.handleTeamsDetails(team.Constructor.constructorId)}>
                                     <td>{team.position}</td>

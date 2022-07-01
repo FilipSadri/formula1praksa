@@ -1,5 +1,4 @@
 import React from "react";
-import * as $ from "jquery";
 
 export default class TeamDetails extends React.Component {
     state = {
@@ -9,8 +8,6 @@ export default class TeamDetails extends React.Component {
     }
 
     componentDidMount() {
-        // this.getConstructorDetails();
-        // this.getConstructorResults();
         this.getTeamDetails();
     }
 
@@ -29,32 +26,8 @@ export default class TeamDetails extends React.Component {
         })
     }
     
-    // getConstructorDetails = () => {
-    //     const id = this.props.match.params.constructorId;
-    //     //console.log("id", this.props.match.params.constructorId)
-    //     const url = `http://ergast.com/api/f1/2013/constructors/${id}/constructorStandings.json`
-    //     $.get(url, (data) => {
-    //         this.setState({
-    //             details: data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings,
-    //             isLoading: false
-    //         })
-    //     })
-    // }
-
-    // getConstructorResults = () => {
-    //     const id = this.props.match.params.constructorId;
-    //     const url = `http://ergast.com/api/f1/2013/constructors/${id}/results.json`
-    //     $.get(url, (data) => {
-    //         console.log(data)
-    //         this.setState({
-    //             teams: data.MRData.RaceTable.Races,
-    //             isLoading: false
-    //         })
-    //     })
-    // }
     setColor = (position) => {
         let color = "";
-        console.log("position", position)
         switch (position) {
             case "1":
                 color = "yellow";
@@ -99,12 +72,11 @@ export default class TeamDetails extends React.Component {
             return <h2>Loading...</h2>
         }
 
-        // console.log("teams", this.state.teams)
         return (
             <div className="drivers-wrap">
                 {this.state.details.map(team => {
                     return (
-                        <div key={team.Constructor.constructorId}>
+                        <div className="driver-bio" key={team.Constructor.constructorId}>
                             <div><img src={require(`./../img/teams/${team.Constructor.name}.png`).default} width={150}/></div>
                             <div><img src={require(`./../img/flags/${team.Constructor.nationality}.png`).default}/></div>
                             <div>{team.Constructor.name}</div>

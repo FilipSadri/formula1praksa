@@ -1,82 +1,37 @@
 import React from "react";
-import * as $ from "jquery";
 
 export default class RaceResults extends React.Component {
   state = {
     details: [],
     qualifyingResults: [],
-    racesResults: [],
+    racesResults: []
   };
 
   componentDidMount() {
-    // this.getRaceDetails();
-    // this.getRaces();
-    // this.getQualifyingResults();
     this.getRaceResults();
   }
 
   getRaceResults = async () => {
     const id = this.props.match.params.circuitId;
-
     const races1Url = `http://ergast.com/api/f1/2013/${id}/results.json`;
     const qualifyngResults1Url = `http://ergast.com/api/f1/2013/${id}/qualifying.json`;
     const raceDetalis1Url = `http://ergast.com/api/f1/2013/${id}/results.json`;
-
     const responseRaces = await fetch(races1Url);
     const races1 = await responseRaces.json();
-
     const qualifyingResults1 = await fetch(qualifyngResults1Url);
     const results1 = await qualifyingResults1.json();
-
     const raceDetalis = await fetch(raceDetalis1Url);
     const race1 = await raceDetalis.json();
 
     this.setState({
       details: races1.MRData.RaceTable.Races,
-
       qualifyingResults: results1.MRData.RaceTable.Races[0].QualifyingResults,
-
-      racesResults: race1.MRData.RaceTable.Races[0].Results,
+      racesResults: race1.MRData.RaceTable.Races[0].Results
     });
   };
 
-  // getRaces = () => {
-  //     const id = this.props.match.params.circuitId;
-  //     const url = `http://ergast.com/api/f1/2013/${id}/results.json`
-
-  //     $.get(url, (data) => {
-  //         this.setState({
-  //             details: data.MRData.RaceTable.Races
-  //         })
-  //     })
-  // }
-
-  // getQualifyingResults = () => {
-  //     const id = this.props.match.params.circuitId;
-  //     const url = `http://ergast.com/api/f1/2013/${id}/qualifying.json`
-  //     console.log("id", id)
-
-  //     $.get(url, (data) => {
-  //         this.setState({
-  //             qualifyingResults: data.MRData.RaceTable.Races[0].QualifyingResults
-  //         })
-  //     })
-  // }
-
-  // getRaceDetails = () => {
-  //     const id = this.props.match.params.circuitId;
-  //     const url = `http://ergast.com/api/f1/2013/${id}/results.json`;
-
-  //     $.get(url, (data) => {
-  //         this.setState({
-  //             racesResults: data.MRData.RaceTable.Races[0].Results
-  //         });
-  //     });
-  // };
-
   setColor = (position) => {
     let color = "";
-    console.log("position", position);
     switch (position) {
       case "25":
         color = "yellow";
@@ -96,7 +51,6 @@ export default class RaceResults extends React.Component {
       case "1":
         color = "lightgreen";
         break;
-
       default:
         color = "darkgrey";
         break;
@@ -109,12 +63,11 @@ export default class RaceResults extends React.Component {
       <div className="drivers-wrap">
         {this.state.details.map((race) => {
           return (
-            <div key={race.Circuit.circuitId}>
+            <div className="driver-bio" key={race.Circuit.circuitId}>
               <h3>
-                {" "}
                 <img
                   src={require(`./../img/flags/${race.raceName}.png`).default}
-                />{" "}
+                />
                 Race Results:{race.raceName}
               </h3>
               <p>Country: {race.Circuit.Location.country}</p>
@@ -123,8 +76,6 @@ export default class RaceResults extends React.Component {
             </div>
           );
         })}
-
-        {/* tabela Qualifying Results */}
 
         <table className="table table-bordered">
           <thead>
@@ -142,13 +93,12 @@ export default class RaceResults extends React.Component {
           </thead>
           <tbody>
             {this.state.qualifyingResults.map((race) => {
-              // console.log("race", race)
               let times = [];
               times.push(race.Q1);
               times.push(race.Q2);
               times.push(race.Q3);
               times.sort();
-              // console.log(times);
+
               return (
                 <tr key={race.position}>
                   <td>{race.position}</td>
@@ -169,8 +119,6 @@ export default class RaceResults extends React.Component {
           </tbody>
         </table>
 
-        {/* tabela Race results */}
-
         <table className="table table-bordered">
           <thead>
             <tr>
@@ -186,7 +134,6 @@ export default class RaceResults extends React.Component {
           </thead>
           <tbody>
             {this.state.racesResults.map((race) => {
-              // console.log("race", race);
               return (
                 <tr key={race.position}>
                   <td>{race.position}</td>

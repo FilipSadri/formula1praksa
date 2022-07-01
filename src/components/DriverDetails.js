@@ -1,9 +1,6 @@
 import React from 'react';
-import * as $ from 'jquery';
 
 export default class DriverDetails extends React.Component {
-
-
     state = {
         details: [],
         races: [],
@@ -29,60 +26,8 @@ export default class DriverDetails extends React.Component {
         })
     }
 
-    // getDriverDetails = () => {
-    //     const id = this.props.match.params.driverId;
-    //     console.log("id", this.props.match.params.driverId)
-    //     const url = `http://ergast.com/api/f1/2013/drivers/${id}/driverStandings.json`;
-    //     $.get(url, (data) => {
-    //         // console.log("data",data)
-    //         this.setState({
-    //             details: data.MRData.StandingsTable.StandingsLists[0].DriverStandings
-    //         })
-    //     })
-    // }
-
-    // getRaceDetails = () => {
-    //     const id = this.props.match.params.driverId;
-    //     const url = `http://ergast.com/api/f1/2013/drivers/${id}/results.json`
-    //     $.get(url, (data) => {
-    //         // console.log("data", data)
-    //         this.setState({
-    //             races: data.MRData.RaceTable.Races
-    //         })
-    //     })
-    // }
-    // setColor = () => {
-    //     let colors = "";
-    //     this.state.races.map(race =>{
-    //         // console.log("races", race.Results[0].position)
-    //         if (race.Results[0].position == 1) {
-    //             colors = `<td style={{"backgroundColor":"yellow"}}>{race.Results[0].position}</td>`;
-    //         } else if (race.Results[0].position == 2){
-    //             return (<td style={{"backgroundColor":"gray"}}>{race.Results[0].position}</td>)
-    //         } else if (race.Results[0].position == 3){
-    //             return (<td style={{"backgroundColor":"orange"}}>{race.Results[0].position}</td>)
-    //         } else if (race.Results[0].position == 4){
-    //             return (<td style={{"backgroundColor":"lightgreen"}}>{race.Results[0].position}</td>)
-    //         } else if (race.Results[0].position == 5){
-    //             return (<td style={{"backgroundColor":"lightblue"}}>{race.Results[0].position}</td>)
-    //         }else if (race.Results[0].position == 6){
-    //             return (<td style={{"backgroundColor":"aqua"}}>{race.Results[0].position}</td>)
-    //         }else if (race.Results[0].position == 7){
-    //             return (<td style={{"backgroundColor":"lightcoral"}}>{race.Results[0].position}</td>)
-    //         }else if (race.Results[0].position == 8){
-    //             return (<td style={{"backgroundColor":"lightcyan"}}>{race.Results[0].position}</td>)
-    //         }else if (race.Results[0].position == 9){
-    //             return (<td style={{"backgroundColor":"lightpink"}}>{race.Results[0].position}</td>)
-    //         }else if (race.Results[0].position == 10){
-    //             return (<td style={{"backgroundColor":"lightsalmon"}}>{race.Results[0].position}</td>)
-    //         }
-    //     })
-    //     return colors;
-    // }
-
     setColor = (position) => {
         let color = "";
-        console.log("position", position)
         switch (position) {
             case "1":
                 color = "yellow";
