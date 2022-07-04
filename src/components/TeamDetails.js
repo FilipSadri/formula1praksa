@@ -80,10 +80,10 @@ export default class TeamDetails extends React.Component {
     }
 
     return (
-      <div className="drivers-wrap">
+      <div className="tata">
         {this.state.details.map((team) => {
           return (
-            <div className="driver-bio" key={team.Constructor.constructorId}>
+            <div className="dete1" key={team.Constructor.constructorId}>
               <div>
                 <img
                   src={
@@ -114,7 +114,7 @@ export default class TeamDetails extends React.Component {
           );
         })}
 
-        <table className="table table-bordered">
+        <table className="table table-bordered dete2">
           <thead>
             <tr>
               <th scope="col" colSpan={5}>

@@ -27,7 +27,7 @@ export default class Races extends React.Component {
 
   render() {
     return (
-      <div className="details-wrap">
+      <div >
         <table className="table table-bordered">
           <thead>
             <tr>
