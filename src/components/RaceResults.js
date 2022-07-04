@@ -77,7 +77,7 @@ export default class RaceResults extends React.Component {
           );
         })}
 
-        <table className="table table-bordered dete2">
+        <table style={{width:"auto"}} className="content-table">
           <thead>
             <tr>
               <th scope="col" colSpan={4}>
@@ -119,7 +119,7 @@ export default class RaceResults extends React.Component {
           </tbody>
         </table>
 
-        <table className="table table-bordered dete3">
+        <table style={{width:"auto"}} className="content-table">
           <thead>
             <tr>
               <th scope="col" colSpan={5}>

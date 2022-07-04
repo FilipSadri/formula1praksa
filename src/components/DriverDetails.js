@@ -102,7 +102,7 @@ export default class DriverDetails extends React.Component {
                     )
                 })}
 
-                <table className=" table table-bordered dete2">
+                <table className="content-table">
                     <thead>
                         <tr>
                             <th scope='col' colSpan={5}> Formula 1 2013 Results</th>

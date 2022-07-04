@@ -114,7 +114,7 @@ export default class TeamDetails extends React.Component {
           );
         })}
 
-        <table className="table table-bordered dete2">
+        <table className="content-table">
           <thead>
             <tr>
               <th scope="col" colSpan={5}>

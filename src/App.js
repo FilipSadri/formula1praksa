@@ -13,21 +13,25 @@ export default class App extends React.Component {
     render() {
         return (
             <Router history={history}>
-                <div className="tata" style={{height:"100vh"}}>
+                <div className="tata">
                     <div style={{backgroundColor:"#35333e"}}>     
                         <ul className="navigation nav nav-tabs deteNav">
-                        <li className="nav-item">
-                        <Link className="nav-link" to="/"> <img className="mainLogo" src={require(`./img/Logo/logoF1.jpg`).default} /></Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/"> <img className="driveLogo" src={require(`./img/Logo/safety.png`).default} />Drivers</Link>           
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/teams"><img className="teamLogo" src={require(`./img/Logo/car.png`).default} />Teams</Link>           
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/races"><img className="raceLogo" src={require(`./img/Logo/flag.png`).default} />Races</Link>         
-                        </li>
+
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/"> <img className="mainLogo" src={require(`./img/Logo/logoF1.jpg`).default} /></Link>
+                            </li>
+
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/"> <img className="driveLogo" src={require(`./img/Logo/safety.png`).default} />Drivers</Link>           
+                            </li>
+
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/teams"><img className="teamLogo" src={require(`./img/Logo/car.png`).default} />Teams</Link>           
+                            </li>
+                            
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/races"><img className="raceLogo" src={require(`./img/Logo/flag.png`).default} />Races</Link>         
+                            </li>
                         </ul>
                         </div> 
                         <Switch>

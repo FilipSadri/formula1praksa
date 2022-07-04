@@ -28,7 +28,7 @@ export default class Races extends React.Component {
   render() {
     return (
       <div >
-        <table className="table table-bordered">
+        <table className="content-table">
           <thead>
             <tr>
               <td scope="col" colSpan={5} >

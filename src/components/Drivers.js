@@ -27,12 +27,12 @@ export default class Drivers extends React.Component {
 
     render() {
         return (
-            <div className="tabeladDiv">
-                <h2>Drivers Championship</h2>
-                <table className="table table-bordered">
+            <div>
+                <h2 className="title">Drivers Championship</h2>
+                <table className="content-table">
                     <thead>
                         <tr>
-                            <th colSpan={4}> Drivers Championship Standings - 2013</th>
+                            <th scope="col" colSpan={4}> Drivers Championship Standings - 2013</th>
                         </tr>
                     </thead>
 
@@ -47,7 +47,7 @@ export default class Drivers extends React.Component {
                         )}
                     </tbody>
                 </table>
-            </div>
+                </div>
         )
     }
 }
