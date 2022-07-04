@@ -13,10 +13,12 @@ export default class App extends React.Component {
     render() {
         return (
             <Router history={history}>
-                <div className="wrap">
-                    <div className="sidebar">
-                            <Link className="nav-link" to="/"> <img className="mainLogo" src={require(`./img/Logo/logoF1.jpg`).default} /></Link> 
-                        <ul className="navigation nav nav-tabs">
+                <div className="tata" style={{height:"100vh"}}>
+                    <div style={{backgroundColor:"#35333e"}}>     
+                        <ul className="navigation nav nav-tabs deteNav">
+                        <li className="nav-item">
+                        <Link className="nav-link" to="/"> <img className="mainLogo" src={require(`./img/Logo/logoF1.jpg`).default} /></Link>
+                        </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/"> <img className="driveLogo" src={require(`./img/Logo/safety.png`).default} />Drivers</Link>           
                         </li>

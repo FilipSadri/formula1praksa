@@ -79,20 +79,20 @@ export default class DriverDetails extends React.Component {
         }
 
         return (
-            <div className='drivers-wrap'>
+            <div className="tata">
                 {this.state.details.map(detail => {
                 console.log("details",this.state.details)
                     return (
-                        <div className='driver-bio' key={detail.Driver.driverId}>
+                        <div className="dete1" key={detail.Driver.driverId}>
                             <h3>Driver details</h3>
-                            <div className='drivers-details'>
-                                <img className='drivers-photo' src={require(`./../img/drivers/${detail.Driver.driverId}.jpg`).default} />
-                                <div className='drivers-data'>
+                            <div >
+                                <img  src={require(`./../img/drivers/${detail.Driver.driverId}.jpg`).default} />
+                                <div >
                                     <img src={require(`./../img/flags/${detail.Driver.nationality}.png`).default} />
                                     <p>{detail.Driver.givenName} {detail.Driver.familyName}</p>
                                 </div>
                             </div>
-                            <div className='drivers-info'>
+                            <div >
                                 <p>Country:{detail.Driver.nationality}</p>
                                 <p>Team: {detail.Constructors[0].name}</p>
                                 <p>Birth: {detail.Driver.dateOfBirth}</p>
@@ -102,7 +102,7 @@ export default class DriverDetails extends React.Component {
                     )
                 })}
 
-                <table className=" table table-bordered">
+                <table className=" table table-bordered dete2">
                     <thead>
                         <tr>
                             <th scope='col' colSpan={5}> Formula 1 2013 Results</th>

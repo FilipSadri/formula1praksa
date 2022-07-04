@@ -17,48 +17,7 @@
 }
 
 /* ------------------ */
-.wrap{
-    display: flex;
-    width: 100%;
-}
 
-.wrap .nav-link {
-    color:#fff;
-    transition: background-color 0.3s ease-in;
-}
-
-.wrap .nav-link:hover {
-    background-color: rgb(46, 44, 44);
-    color:#fff;
-}
-
-.sidebar{
-    display: flex;
-    flex-direction: column;
-    background-color: #565656;
-}
-
-.heightTeamsSideBar{
-    height: 100vh;
-}
-
-.navigation {
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.nav-item {
-    width: 100%;
-}
-
-.details-wrap{
-    flex-grow: 1;
-}
-
-.drivers-wrap{
-    flex-grow: 1;
-    display: flex;
-}
 
 .driver-bio {
     width: 25%;
@@ -78,7 +37,9 @@
     width: 80px;
     border-radius: 10px;
 }
-
+.navigation.nav.nav-tabs {
+    height: 100vh
+}
 
 
 .drivers-info{
@@ -109,3 +70,18 @@
     align-items: center;
     width: 100%;
 } 
+
+.tata {
+    display: flex;
+}
+
+.dete1,.dete2,.dete3,.deteNav {
+    flex-direction: column; 
+    border: solid 1px #d3d0d042 ; 
+}
+
+.dete1 {
+    background-color: #35333e;
+    color: white;
+}
+

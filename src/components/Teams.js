@@ -30,7 +30,7 @@ export default class Teams extends React.Component {
 
     render() {
         return (
-            <div className="heightTeamsSideBar">
+            <div >
                 <table className="table table-bordered">
                     <thead>
                         <tr>
