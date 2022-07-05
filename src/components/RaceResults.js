@@ -77,11 +77,7 @@ export default class RaceResults extends React.Component {
           );
         })}
 
-<<<<<<< HEAD
-        <table style={{width:"44%"}} className="content-table">
-=======
-        <table style={{ width: "auto" }} className="content-table">
->>>>>>> 766de641d7a489727c913d7ad4f53a11e5dff181
+        <table style={{ width: "44%" }} className="content-table">
           <thead>
             <tr>
               <th scope="col" colSpan={4}>
@@ -123,11 +119,7 @@ export default class RaceResults extends React.Component {
           </tbody>
         </table>
 
-<<<<<<< HEAD
-        <table style={{width:"44%"}} className="content-table">
-=======
-        <table style={{ width: "auto" }} className="content-table">
->>>>>>> 766de641d7a489727c913d7ad4f53a11e5dff181
+        <table style={{ width: "44%" }} className="content-table">
           <thead>
             <tr>
               <th scope="col" colSpan={5}>
