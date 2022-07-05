@@ -79,11 +79,11 @@ export default class DriverDetails extends React.Component {
         }
 
         return (
-            <div className="tata">
+            <div style={{width:"100%"}} className="tata">
                 {this.state.details.map(detail => {
                 console.log("details",this.state.details)
                     return (
-                        <div className="dete1" key={detail.Driver.driverId}>
+                        <div style={{width:"12%"}} className="dete1" key={detail.Driver.driverId}>
                             <h3>Driver details</h3>
                             <div >
                                 <img  src={require(`./../img/drivers/${detail.Driver.driverId}.jpg`).default} />
@@ -102,7 +102,7 @@ export default class DriverDetails extends React.Component {
                     )
                 })}
 
-                <table className="content-table">
+                <table style={{width:"88%"}} className="content-table">
                     <thead>
                         <tr>
                             <th scope='col' colSpan={5}> Formula 1 2013 Results</th>

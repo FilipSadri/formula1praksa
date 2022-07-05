@@ -60,10 +60,10 @@ export default class RaceResults extends React.Component {
 
   render() {
     return (
-      <div className="tata">
+      <div style={{width:"100%"}} className="tata">
         {this.state.details.map((race) => {
           return (
-            <div className="dete1" key={race.Circuit.circuitId}>
+            <div style={{width:"12%"}} className="dete1" key={race.Circuit.circuitId}>
               <h3>
                 <img
                   src={require(`./../img/flags/${race.raceName}.png`).default}
@@ -77,7 +77,7 @@ export default class RaceResults extends React.Component {
           );
         })}
 
-        <table style={{width:"auto"}} className="content-table">
+        <table style={{width:"44%"}} className="content-table">
           <thead>
             <tr>
               <th scope="col" colSpan={4}>
@@ -119,7 +119,7 @@ export default class RaceResults extends React.Component {
           </tbody>
         </table>
 
-        <table style={{width:"auto"}} className="content-table">
+        <table style={{width:"44%"}} className="content-table">
           <thead>
             <tr>
               <th scope="col" colSpan={5}>
