@@ -88,7 +88,6 @@ export default class DriverDetails extends React.Component {
               className="dete1"
               key={detail.Driver.driverId}
             >
-              <h3>Driver details</h3>
               <div>
                 <img
                   src={
