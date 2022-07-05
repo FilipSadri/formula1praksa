@@ -2,12 +2,11 @@ import React from "react";
 import { BsBook } from "react-icons/bs";
 import CircleLoader from "react-spinners/CircleLoader";
 
-
 export default class TeamDetails extends React.Component {
   state = {
     details: [],
     teams: [],
-    isLoading: true
+    isLoading: true,
   };
 
   componentDidMount() {
@@ -23,7 +22,9 @@ export default class TeamDetails extends React.Component {
     const responseResults = await fetch(resultsUrl);
     const results = await responseResults.json();
     this.setState({
-      details:constructorStandings.MRData.StandingsTable.StandingsLists[0].ConstructorStandings,
+      details:
+        constructorStandings.MRData.StandingsTable.StandingsLists[0]
+          .ConstructorStandings,
       teams: results.MRData.RaceTable.Races,
       isLoading: false,
     });
@@ -73,10 +74,17 @@ export default class TeamDetails extends React.Component {
   render() {
     if (this.state.isLoading) {
       return (
+<<<<<<< HEAD
         <div className='loader-container'>
                     <CircleLoader color="red" size={60} />
                 </div>
       )
+=======
+        <div className="loader-container">
+          <CircleLoader />
+        </div>
+      );
+>>>>>>> 766de641d7a489727c913d7ad4f53a11e5dff181
     }
 
     return (
@@ -102,12 +110,17 @@ export default class TeamDetails extends React.Component {
                 />
               </div>
               <div>{team.Constructor.name}</div>
-              <p>Country:{team.Constructor.nationality}</p>
-              <p>Position:{team.position}</p>
-              <p>Points:{team.points}</p>
-              <p>History: 
-                <a className='button' href={team.Constructor.url} target="_blank">
-                 <BsBook/> 
+              <p>Country: {team.Constructor.nationality}</p>
+              <p>Position: {team.position}</p>
+              <p>Points: {team.points}</p>
+              <p>
+                History:
+                <a
+                  className="button"
+                  href={team.Constructor.url}
+                  target="_blank"
+                >
+                  <BsBook />
                 </a>
               </p>
             </div>
