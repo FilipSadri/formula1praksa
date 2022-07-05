@@ -4,7 +4,7 @@ export default class RaceResults extends React.Component {
   state = {
     details: [],
     qualifyingResults: [],
-    racesResults: []
+    racesResults: [],
   };
 
   componentDidMount() {
@@ -26,7 +26,7 @@ export default class RaceResults extends React.Component {
     this.setState({
       details: races1.MRData.RaceTable.Races,
       qualifyingResults: results1.MRData.RaceTable.Races[0].QualifyingResults,
-      racesResults: race1.MRData.RaceTable.Races[0].Results
+      racesResults: race1.MRData.RaceTable.Races[0].Results,
     });
   };
 
@@ -71,13 +71,13 @@ export default class RaceResults extends React.Component {
                 Race Results:{race.raceName}
               </h3>
               <p>Country: {race.Circuit.Location.country}</p>
-              <p>Location:{race.Circuit.Location.locality}</p>
-              <p>Date:{race.date}</p>
+              <p>Location: {race.Circuit.Location.locality}</p>
+              <p>Date: {race.date}</p>
             </div>
           );
         })}
 
-        <table style={{width:"auto"}} className="content-table">
+        <table style={{ width: "auto" }} className="content-table">
           <thead>
             <tr>
               <th scope="col" colSpan={4}>
@@ -119,7 +119,7 @@ export default class RaceResults extends React.Component {
           </tbody>
         </table>
 
-        <table style={{width:"auto"}} className="content-table">
+        <table style={{ width: "auto" }} className="content-table">
           <thead>
             <tr>
               <th scope="col" colSpan={5}>
