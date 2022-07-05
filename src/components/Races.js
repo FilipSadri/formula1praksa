@@ -27,7 +27,7 @@ export default class Races extends React.Component {
 
   render() {
     return (
-      <div style={{width:"90%"}}>
+      <div className="driverBody">
         <h2 className="title">Race Calendar</h2>
         <table className="content-table">
           <thead>

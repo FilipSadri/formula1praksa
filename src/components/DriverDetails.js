@@ -79,13 +79,12 @@ export default class DriverDetails extends React.Component {
     }
 
     return (
-      <div style={{ width: "100%" }} className="tata">
+      <div className="main">
         {this.state.details.map((detail) => {
           console.log("details", this.state.details);
           return (
             <div
-              style={{ width: "12%" }}
-              className="dete1"
+              className="info"
               key={detail.Driver.driverId}
             >
               <div>
@@ -127,7 +126,7 @@ export default class DriverDetails extends React.Component {
           );
         })}
 
-        <table style={{ width: "88%" }} className="content-table">
+        <table className="content-table details-info">
           <thead>
             <tr>
               <th scope="col" colSpan={5}>

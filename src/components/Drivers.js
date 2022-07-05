@@ -27,7 +27,7 @@ export default class Drivers extends React.Component {
 
     render() {
         return (
-            <div style={{width:"90%"}}>
+            <div className="driverBody" >
                 <h2 className="title">Drivers Championship</h2>
                 <table className="content-table">
                     <thead>

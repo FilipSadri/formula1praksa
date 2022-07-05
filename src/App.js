@@ -14,8 +14,8 @@ export default class App extends React.Component {
         return (
             
             <Router history={history}>
-                <div style={{width:"100%"}} className="tata">
-                    <div style={{backgroundColor:"#35333e", width:"10%"}}>     
+                <div className="main">
+                    <div className="sidebar" >     
                         <ul className="navigation nav nav-tabs deteNav">
 
                             <li className="nav-item">

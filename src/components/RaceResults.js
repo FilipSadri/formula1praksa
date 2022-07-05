@@ -70,12 +70,11 @@ export default class RaceResults extends React.Component {
       );
     }
     return (
-      <div style={{ width: "100%" }} className="tata">
+      <div  className="main">
         {this.state.details.map((race) => {
           return (
             <div
-              style={{ width: "12%" }}
-              className="dete1"
+              className="info"
               key={race.Circuit.circuitId}
             >
               <h3 className="raceResults">
@@ -91,7 +90,7 @@ export default class RaceResults extends React.Component {
           );
         })}
 
-        <table style={{ width: "44%" }} className="content-table">
+        <table className="content-table raceInfo">
           <thead>
             <tr>
               <th scope="col" colSpan={4}>
@@ -133,7 +132,7 @@ export default class RaceResults extends React.Component {
           </tbody>
         </table>
 
-        <table style={{ width: "44%" }} className="content-table">
+        <table className="content-table raceInfo">
           <thead>
             <tr>
               <th scope="col" colSpan={5}>

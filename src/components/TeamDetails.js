@@ -81,12 +81,11 @@ export default class TeamDetails extends React.Component {
     }
 
     return (
-      <div style={{ width: "100%" }} className="tata">
+      <div  className="main">
         {this.state.details.map((team) => {
           return (
             <div
-              style={{ width: "12%" }}
-              className="dete1"
+              className="info"
               key={team.Constructor.constructorId}
             >
               <div>
@@ -124,7 +123,7 @@ export default class TeamDetails extends React.Component {
           );
         })}
 
-        <table style={{ width: "88%" }} className="content-table">
+        <table className="content-table details-info">
           <thead>
             <tr>
               <th scope="col" colSpan={5}>
