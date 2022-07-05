@@ -1,10 +1,12 @@
 import React from "react";
+import CircleLoader from "react-spinners/CircleLoader";
 
 export default class RaceResults extends React.Component {
   state = {
     details: [],
     qualifyingResults: [],
     racesResults: [],
+    isLoading: true,
   };
 
   componentDidMount() {
@@ -27,6 +29,7 @@ export default class RaceResults extends React.Component {
       details: races1.MRData.RaceTable.Races,
       qualifyingResults: results1.MRData.RaceTable.Races[0].QualifyingResults,
       racesResults: race1.MRData.RaceTable.Races[0].Results,
+      isLoading: false,
     });
   };
 
@@ -59,6 +62,13 @@ export default class RaceResults extends React.Component {
   };
 
   render() {
+    if (this.state.isLoading) {
+      return (
+        <div className="loader-container">
+          <CircleLoader color="yellow" size={60} />
+        </div>
+      );
+    }
     return (
       <div style={{ width: "100%" }} className="tata">
         {this.state.details.map((race) => {

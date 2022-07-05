@@ -75,16 +75,20 @@ export default class TeamDetails extends React.Component {
     if (this.state.isLoading) {
       return (
         <div className="loader-container">
-          <CircleLoader color="red" size={60} />
+          <CircleLoader color="yellow" size={60} />
         </div>
       );
     }
 
     return (
-      <div style={{width:"100%"}} className="tata">
+      <div style={{ width: "100%" }} className="tata">
         {this.state.details.map((team) => {
           return (
-            <div style={{width:"12%"}} className="dete1" key={team.Constructor.constructorId}>
+            <div
+              style={{ width: "12%" }}
+              className="dete1"
+              key={team.Constructor.constructorId}
+            >
               <div>
                 <img
                   src={
@@ -120,7 +124,7 @@ export default class TeamDetails extends React.Component {
           );
         })}
 
-        <table style={{width:"88%"}} className="content-table">
+        <table style={{ width: "88%" }} className="content-table">
           <thead>
             <tr>
               <th scope="col" colSpan={5}>
