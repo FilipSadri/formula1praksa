@@ -74,17 +74,10 @@ export default class TeamDetails extends React.Component {
   render() {
     if (this.state.isLoading) {
       return (
-<<<<<<< HEAD
-        <div className='loader-container'>
-                    <CircleLoader color="red" size={60} />
-                </div>
-      )
-=======
         <div className="loader-container">
           <CircleLoader />
         </div>
       );
->>>>>>> 766de641d7a489727c913d7ad4f53a11e5dff181
     }
 
     return (
