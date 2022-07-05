@@ -87,14 +87,18 @@ export default class DriverDetails extends React.Component {
               className="info"
               key={detail.Driver.driverId}
             >
-              <div>
-                <img
-                  src={
-                    require(`./../img/drivers/${detail.Driver.driverId}.jpg`)
-                      .default
-                  }
-                />
-                <div>
+              <div className="About">
+
+                <div className="Picture">
+                  <img
+                    src={
+                      require(`./../img/drivers/${detail.Driver.driverId}.jpg`)
+                        .default
+                    }
+                  />
+                </div>
+
+                <div style={{marginLeft:"10px"}}>
                   <img
                     src={
                       require(`./../img/flags/${detail.Driver.nationality}.png`)

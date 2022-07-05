@@ -126,8 +126,21 @@
     width: 88%;
 }
 
-.raceInfo {
-    width: 44%;
+.content-table.raceInfo {
+    width: 43%;
+}
+
+.raceResults {
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+    display: grid;
+}
+
+.raceResultsInfo {
+    background-color: #35333e;
+    color: white;
+    padding: 5px;
+    width: 14%;
 }
 
 .info {
@@ -142,10 +155,10 @@
 .content-table {
     border-collapse: collapse;
     margin: 50px 50px;
-    font-size: 0.9em;
     width: 93%;
     /* min-width: 400px; */
     /* wisth: 83vw; */
+    font-size: 0.9em;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
 }
@@ -189,8 +202,12 @@
     background-color: #848389;
 }
 
-.raceResults {
-    font-size: larger;
-    font-family: Arial, Helvetica, sans-serif;
-    display: grid;
+
+.About {
+    display: flex;
+}
+
+.Picture img {
+    width:60px;
+    border-radius: 3px;
 }

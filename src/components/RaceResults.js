@@ -74,7 +74,7 @@ export default class RaceResults extends React.Component {
         {this.state.details.map((race) => {
           return (
             <div
-              className="info"
+              className="raceResultsInfo"
               key={race.Circuit.circuitId}
             >
               <h3 className="raceResults">
