@@ -84,7 +84,6 @@ export default class DriverDetails extends React.Component {
                 console.log("details",this.state.details)
                     return (
                         <div style={{width:"12%"}} className="dete1" key={detail.Driver.driverId}>
-                            <h3>Driver details</h3>
                             <div >
                                 <img  src={require(`./../img/drivers/${detail.Driver.driverId}.jpg`).default} />
                                 <div >
