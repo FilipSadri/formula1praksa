@@ -40,7 +40,7 @@ export default class Drivers extends React.Component {
                         {this.state.drivers.map(driver =>
                             <tr key={driver.Driver.driverId} onClick={() => this.handleClickDetails(driver.Driver.driverId)}>
                                 <td>{driver.position}</td>
-                                <td> <img src={require(`./../img/flags/${driver.Driver.nationality}.png`).default} /> {driver.Driver.givenName} {driver.Driver.familyName}</td>
+                                <td className="pointer"> <img src={require(`./../img/flags/${driver.Driver.nationality}.png`).default} /> {driver.Driver.givenName} {driver.Driver.familyName}</td>
                                 <td>{driver.Constructors[0].name}</td>
                                 <td>{driver.points}</td>
                             </tr>

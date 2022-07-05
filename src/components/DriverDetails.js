@@ -73,7 +73,7 @@ export default class DriverDetails extends React.Component {
         if (this.state.isLoading) {
             return (
                 <div className='loader-container'>
-                    <CircleLoader />
+                    <CircleLoader color="red" size={60} />
                 </div>
             )
         }

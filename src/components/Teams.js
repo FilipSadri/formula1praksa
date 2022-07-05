@@ -30,7 +30,8 @@ export default class Teams extends React.Component {
 
     render() {
         return (
-            <div >
+            <div>
+                <h2 className="title">Constructors Championship</h2>
                 <table className="content-table">
                     <thead>
                         <tr>
@@ -42,7 +43,7 @@ export default class Teams extends React.Component {
                             return (
                                 <tr key={team.Constructor.constructorId} onClick={() => this.handleTeamsDetails(team.Constructor.constructorId)}>
                                     <td>{team.position}</td>
-                                    <td><img src={require(`./../img/flags/${team.Constructor.nationality}.png`).default} width={30}/>{team.Constructor.name}</td>
+                                    <td className="pointer"><img src={require(`./../img/flags/${team.Constructor.nationality}.png`).default} width={30}/>{team.Constructor.name}</td>
                                     <td>Details: <a className='button' href={team.Constructor.url} target="_blank"> <BsBoxArrowUpRight/></a></td>
                                     <td>{team.points}</td>
                                 </tr>

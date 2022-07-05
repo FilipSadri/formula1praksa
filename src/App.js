@@ -22,15 +22,15 @@ export default class App extends React.Component {
                             </li>
 
                             <li className="nav-item">
-                                <Link className="nav-link" to="/"> <img className="driveLogo" src={require(`./img/Logo/safety.png`).default} />Drivers</Link>           
+                                <Link className="nav-link titleSidebar" to="/"> <img className="driveLogo" src={require(`./img/Logo/safety.png`).default} />Drivers</Link>           
                             </li>
 
                             <li className="nav-item">
-                                <Link className="nav-link" to="/teams"><img className="teamLogo" src={require(`./img/Logo/car.png`).default} />Teams</Link>           
+                                <Link className="nav-link titleSidebar" to="/teams"><img className="teamLogo" src={require(`./img/Logo/car.png`).default} />Teams</Link>           
                             </li>
                             
                             <li className="nav-item">
-                                <Link className="nav-link" to="/races"><img className="raceLogo" src={require(`./img/Logo/flag.png`).default} />Races</Link>         
+                                <Link className="nav-link titleSidebar" to="/races"><img className="raceLogo" src={require(`./img/Logo/flag.png`).default} />Races</Link>         
                             </li>
                         </ul>
                         </div> 

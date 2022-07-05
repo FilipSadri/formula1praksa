@@ -27,7 +27,8 @@ export default class Races extends React.Component {
 
   render() {
     return (
-      <div >
+      <div>
+        <h2 className="title">Race Calendar</h2>
         <table className="content-table">
           <thead>
             <tr>
@@ -51,7 +52,7 @@ export default class Races extends React.Component {
                   onClick={() => this.handleRaceResults(race.round)}
                 >
                   <td>{race.round}</td>
-                  <td>
+                  <td className="pointer">
                     <img
                       src={
                         require(`./../img/flags/${race.raceName}.png`).default

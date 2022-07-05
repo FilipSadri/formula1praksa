@@ -16,6 +16,11 @@
     margin-right: 10px;
 }
 
+.mainLogo {
+    border-radius: 20px;
+    width:150px
+}
+
 /* ------------------ */
 
 
@@ -117,6 +122,22 @@
 }
 
 .title {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Dancing Script', cursive;
     margin: 50px 50px;
+    color: #fff;
+    font-size: 50px;
+}
+
+.nav-link.titleSidebar {
+    font-family: 'Dancing Script', cursive;
+    color: #fff;
+    font-size: 30px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.pointer:hover {
+    background-color: #848389;
 }
