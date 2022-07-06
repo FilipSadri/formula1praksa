@@ -56,7 +56,7 @@ export default class Teams extends React.Component {
                           .default
                       }
                       width={30}
-                    />
+                    />{" "}
                     {team.Constructor.name}
                   </td>
                   <td>
