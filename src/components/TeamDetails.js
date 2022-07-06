@@ -81,44 +81,45 @@ export default class TeamDetails extends React.Component {
     }
 
     return (
-      <div  className="main">
+      <div className="main res-size">
         {this.state.details.map((team) => {
           return (
-            <div
-              className="info"
-              key={team.Constructor.constructorId}
-            >
-              <div>
-                <img
-                  src={
-                    require(`./../img/teams/${team.Constructor.name}.png`)
-                      .default
-                  }
-                  width={150}
-                />
+            <div className="info" key={team.Constructor.constructorId}>
+              <div className="About">
+                <div className="Picture">
+                  <img
+                    style={{ backgroundColor: "white" }}
+                    src={
+                      require(`./../img/teams/${team.Constructor.name}.png`)
+                        .default
+                    }
+                  />
+                </div>
+                <div style={{ marginLeft: "10px" }}>
+                  <img
+                    src={
+                      require(`./../img/flags/${team.Constructor.nationality}.png`)
+                        .default
+                    }
+                  /> 
+                  <p>{team.Constructor.name}</p>
+                </div>
               </div>
               <div>
-                <img
-                  src={
-                    require(`./../img/flags/${team.Constructor.nationality}.png`)
-                      .default
-                  }
-                />
+                <p>Country: {team.Constructor.nationality}</p>
+                <p>Position: {team.position}</p>
+                <p>Points: {team.points}</p>
+                <p>
+                  History:
+                  <a
+                    className="button"
+                    href={team.Constructor.url}
+                    target="_blank"
+                  >
+                    <BsBook />
+                  </a>
+                </p>
               </div>
-              <div>{team.Constructor.name}</div>
-              <p>Country: {team.Constructor.nationality}</p>
-              <p>Position: {team.position}</p>
-              <p>Points: {team.points}</p>
-              <p>
-                History:
-                <a
-                  className="button"
-                  href={team.Constructor.url}
-                  target="_blank"
-                >
-                  <BsBook />
-                </a>
-              </p>
             </div>
           );
         })}
@@ -142,28 +143,28 @@ export default class TeamDetails extends React.Component {
           <tbody>
             {this.state.teams.map((team) => (
               <tr key={team.round}>
-                <td>{team.round}</td>
+                <td className="num-b">{team.round}</td>
                 <td>
                   <img
                     src={require(`./../img/flags/${team.raceName}.png`).default}
-                  />
+                  /> 
                   {team.raceName}
                 </td>
-                <td
+                <td className="num-b num-box"
                   style={{
                     backgroundColor: this.setColor(team.Results[0].position),
                   }}
                 >
                   {team.Results[0].position}
                 </td>
-                <td
+                <td className="num-b"
                   style={{
                     backgroundColor: this.setColor(team.Results[1].position),
                   }}
                 >
                   {team.Results[1].position}
                 </td>
-                <td>
+                <td className="num-b num-box">
                   {parseInt(team.Results[0].points) +
                     parseInt(team.Results[1].points)}
                 </td>

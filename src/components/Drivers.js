@@ -39,10 +39,10 @@ export default class Drivers extends React.Component {
                     <tbody>
                         {this.state.drivers.map(driver =>
                             <tr key={driver.Driver.driverId} onClick={() => this.handleClickDetails(driver.Driver.driverId)}>
-                                <td>{driver.position}</td>
+                                <td className="num-b">{driver.position}</td>
                                 <td className="pointer"> <img src={require(`./../img/flags/${driver.Driver.nationality}.png`).default} /> {driver.Driver.givenName} {driver.Driver.familyName}</td>
                                 <td>{driver.Constructors[0].name}</td>
-                                <td>{driver.points}</td>
+                                <td className="num-b">{driver.points}</td>
                             </tr>
                         )}
                     </tbody>

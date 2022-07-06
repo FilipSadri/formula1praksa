@@ -70,13 +70,10 @@ export default class RaceResults extends React.Component {
       );
     }
     return (
-      <div  className="main">
+      <div className="main res-size">
         {this.state.details.map((race) => {
           return (
-            <div
-              className="info"
-              key={race.Circuit.circuitId}
-            >
+            <div className="raceResultsInfo" key={race.Circuit.circuitId}>
               <h3 className="raceResults">
                 <img
                   src={require(`./../img/flags/${race.raceName}.png`).default}
@@ -114,18 +111,18 @@ export default class RaceResults extends React.Component {
 
               return (
                 <tr key={race.position}>
-                  <td>{race.position}</td>
+                  <td className="num-b">{race.position}</td>
                   <td>
                     <img
                       src={
                         require(`./../img/flags/${race.Driver.nationality}.png`)
                           .default
                       }
-                    />
+                    />{" "}
                     {race.Driver.familyName}
                   </td>
                   <td>{race.Constructor.name}</td>
-                  <td>{times[0]}</td>
+                  <td className="num-b">{times[0]}</td>
                 </tr>
               );
             })}
@@ -151,19 +148,19 @@ export default class RaceResults extends React.Component {
             {this.state.racesResults.map((race) => {
               return (
                 <tr key={race.position}>
-                  <td>{race.position}</td>
+                  <td className="num-b">{race.position}</td>
                   <td>
                     <img
                       src={
                         require(`./../img/flags/${race.Driver.nationality}.png`)
                           .default
                       }
-                    />
+                    />{" "}
                     {race.Driver.familyName}
                   </td>
                   <td>{race.Constructor.name}</td>
-                  <td>{race?.Time?.time}</td>
-                  <td style={{ backgroundColor: this.setColor(race.points) }}>
+                  <td className="num-b">{race?.Time?.time}</td>
+                  <td className="num-b num-box" style={{ backgroundColor: this.setColor(race.points) }}>
                     {race.points}
                   </td>
                 </tr>

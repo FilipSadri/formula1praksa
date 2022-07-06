@@ -79,7 +79,7 @@ export default class DriverDetails extends React.Component {
     }
 
     return (
-      <div className="main">
+      <div className="main res-size">
         {this.state.details.map((detail) => {
           console.log("details", this.state.details);
           return (
@@ -87,14 +87,18 @@ export default class DriverDetails extends React.Component {
               className="info"
               key={detail.Driver.driverId}
             >
-              <div>
-                <img
-                  src={
-                    require(`./../img/drivers/${detail.Driver.driverId}.jpg`)
-                      .default
-                  }
-                />
-                <div>
+              <div className="About">
+
+                <div className="Picture">
+                  <img
+                    src={
+                      require(`./../img/drivers/${detail.Driver.driverId}.jpg`)
+                        .default
+                    }
+                  />
+                </div>
+
+                <div className="driver-info" style={{marginLeft:"10px"}}>
                   <img
                     src={
                       require(`./../img/flags/${detail.Driver.nationality}.png`)
@@ -146,7 +150,7 @@ export default class DriverDetails extends React.Component {
           <tbody>
             {this.state.races.map((race) => (
               <tr key={race.round}>
-                <td>{race.round}</td>
+                <td className="num-b">{race.round}</td>
                 <td>
                   {" "}
                   <img
@@ -155,8 +159,8 @@ export default class DriverDetails extends React.Component {
                   {race.raceName}
                 </td>
                 <td>{race.Results[0].Constructor.name}</td>
-                <td>{race.Results[0].grid}</td>
-                <td
+                <td className="num-b">{race.Results[0].grid}</td>
+                <td className="num-b num-box"
                   style={{
                     backgroundColor: this.setColor(race.Results[0].position),
                   }}
