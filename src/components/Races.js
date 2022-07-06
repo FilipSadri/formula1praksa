@@ -4,7 +4,7 @@ import history from "../history";
 
 export default class Races extends React.Component {
   state = {
-    races: []
+    races: [],
   };
 
   componentDidMount() {
@@ -15,7 +15,7 @@ export default class Races extends React.Component {
     const url = "http://ergast.com/api/f1/2013/results/1.json";
     $.get(url, (data) => {
       this.setState({
-        races: data.MRData.RaceTable.Races
+        races: data.MRData.RaceTable.Races,
       });
     });
   };
@@ -32,7 +32,7 @@ export default class Races extends React.Component {
         <table className="content-table">
           <thead>
             <tr>
-              <td scope="col" colSpan={5} >
+              <td scope="col" colSpan={5}>
                 Race Calendar-2013
               </td>
             </tr>
@@ -57,7 +57,7 @@ export default class Races extends React.Component {
                       src={
                         require(`./../img/flags/${race.raceName}.png`).default
                       }
-                    />
+                    />{" "}
                     {race.raceName}
                   </td>
                   <td>{race.Circuit.circuitName}</td>
@@ -68,7 +68,7 @@ export default class Races extends React.Component {
                         require(`./../img/flags/${race.Results[0].Driver.nationality}.png`)
                           .default
                       }
-                    />
+                    />{" "}
                     {race.Results[0].Driver.familyName}
                   </td>
                 </tr>
