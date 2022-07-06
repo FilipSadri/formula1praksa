@@ -3,25 +3,29 @@ import * as $ from "jquery";
 import history from "../history";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 
-
 export default class Teams extends React.Component {
+  state = {
+    teams: [],
+  };
 
-    state = {
-        teams: []
-    }
+  componentDidMount() {
+    this.getPosts();
+  }
 
-    componentDidMount() {
-        this.getPosts()
-    }
+  getPosts = () => {
+    const url = "http://ergast.com/api/f1/2013/constructorStandings.json";
+    $.get(url, (data) => {
+      this.setState({
+        teams:
+          data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings,
+      });
+    });
+  };
 
-    getPosts = () => {
-        const url = "http://ergast.com/api/f1/2013/constructorStandings.json";
-        $.get(url, (data) => {
-            this.setState({
-                teams: data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings
-            });
-        });
-    }
+  handleTeamsDetails = (id) => {
+    const url = `/teamDetails/${id}`;
+    history.push(url);
+  };
 
     handleTeamsDetails = (id) => {
         const url = `/teamDetails/${id}`;
