@@ -57,7 +57,7 @@ export default class Races extends React.Component {
                       src={
                         require(`./../img/flags/${race.raceName}.png`).default
                       }
-                    />
+                    />{" "}
                     {race.raceName}
                   </td>
                   <td>{race.Circuit.circuitName}</td>
@@ -68,7 +68,7 @@ export default class Races extends React.Component {
                         require(`./../img/flags/${race.Results[0].Driver.nationality}.png`)
                           .default
                       }
-                    />
+                    />{" "}
                     {race.Results[0].Driver.familyName}
                   </td>
                 </tr>

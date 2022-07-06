@@ -147,7 +147,7 @@ export default class TeamDetails extends React.Component {
                 <td>
                   <img
                     src={require(`./../img/flags/${team.raceName}.png`).default}
-                  />
+                  />{" "}
                   {team.raceName}
                 </td>
                 <td
