@@ -79,7 +79,7 @@ export default class DriverDetails extends React.Component {
     }
 
     return (
-      <div className="main res-size">
+      <div className="main">
         {this.state.details.map((detail) => {
           console.log("details", this.state.details);
           return (
@@ -98,7 +98,7 @@ export default class DriverDetails extends React.Component {
                   />
                 </div>
 
-                <div className="driver-info" style={{marginLeft:"10px"}}>
+                <div style={{marginLeft:"10px"}}>
                   <img
                     src={
                       require(`./../img/flags/${detail.Driver.nationality}.png`)
@@ -150,7 +150,7 @@ export default class DriverDetails extends React.Component {
           <tbody>
             {this.state.races.map((race) => (
               <tr key={race.round}>
-                <td className="num-b">{race.round}</td>
+                <td>{race.round}</td>
                 <td>
                   {" "}
                   <img
@@ -159,8 +159,8 @@ export default class DriverDetails extends React.Component {
                   {race.raceName}
                 </td>
                 <td>{race.Results[0].Constructor.name}</td>
-                <td className="num-b">{race.Results[0].grid}</td>
-                <td className="num-b num-box"
+                <td>{race.Results[0].grid}</td>
+                <td
                   style={{
                     backgroundColor: this.setColor(race.Results[0].position),
                   }}

@@ -1,10 +1,13 @@
 import React from "react";
 import * as $ from "jquery";
 import history from "../history";
+import TopNavigation from "./TopNavigation";
 
 export default class Races extends React.Component {
   state = {
     races: [],
+    searchApiData: [],
+    filterValue: "",
   };
 
   componentDidMount() {
@@ -16,8 +19,30 @@ export default class Races extends React.Component {
     $.get(url, (data) => {
       this.setState({
         races: data.MRData.RaceTable.Races,
+        searchApiData: data.MRData.RaceTable.Races,
       });
     });
+  };
+
+  handleFilter = (searchText) => {
+    if (searchText.target.value == "") {
+      return this.setState({
+        races: this.state.searchApiData,
+      });
+    } else {
+      const filterResult = this.state.searchApiData.filter(
+        (race) =>
+          race.raceName
+            .toLowerCase()
+            .includes(searchText.target.value.toLowerCase()) ||
+          race.Circuit.circuitName
+            .toLowerCase()
+            .includes(searchText.target.value.toLowerCase())
+      );
+      this.setState({
+        races: filterResult,
+      });
+    }
   };
 
   handleRaceResults = (id) => {
@@ -28,6 +53,10 @@ export default class Races extends React.Component {
   render() {
     return (
       <div className="driverBody">
+        <TopNavigation
+          filterValue={this.state.filterValue}
+          handleFilter={this.handleFilter}
+        />
         <h2 className="title">Race Calendar</h2>
         <table className="content-table">
           <thead>
@@ -47,12 +76,12 @@ export default class Races extends React.Component {
           <tbody>
             {this.state.races.map((race) => {
               return (
-                <tr
-                  key={race.round}
-                  onClick={() => this.handleRaceResults(race.round)}
-                >
-                  <td className="num-b">{race.round}</td>
-                  <td className="pointer">
+                <tr key={race.round}>
+                  <td>{race.round}</td>
+                  <td
+                    onClick={() => this.handleRaceResults(race.round)}
+                    className="pointer"
+                  >
                     <img
                       src={
                         require(`./../img/flags/${race.raceName}.png`).default
@@ -61,7 +90,7 @@ export default class Races extends React.Component {
                     {race.raceName}
                   </td>
                   <td>{race.Circuit.circuitName}</td>
-                  <td className="num-b">{race.date}</td>
+                  <td>{race.date}</td>
                   <td>
                     <img
                       src={
