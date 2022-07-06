@@ -5,6 +5,8 @@ import history from "./../history";
 export default class Drivers extends React.Component {
   state = {
     drivers: [],
+    searchBar: [],
+    filterValue: "",
   };
 
   componentDidMount() {
@@ -12,6 +14,10 @@ export default class Drivers extends React.Component {
   }
 
   getDriversInfo = async () => {
+    const fetchDataUrl = "http://ergast.com/api/f1/2013/driverStandings.json";
+    const responseFetchData = await fetch(fetchDataUrl);
+    const fetchData = await responseFetchData.json();
+
     const driverStandingsUrl =
       "http://ergast.com/api/f1/2013/driverStandings.json";
     const responseDriverStandings = await fetch(driverStandingsUrl);
@@ -19,6 +25,15 @@ export default class Drivers extends React.Component {
     this.setState({
       drivers:
         driverStandings.MRData.StandingsTable.StandingsLists[0].DriverStandings,
+      searchBar:
+        fetchData.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]
+          .Driver.givenName,
+    });
+  };
+
+  handleFilter = (e) => {
+    this.setState({
+      filterValue: e.target.value,
     });
   };
 
@@ -28,9 +43,15 @@ export default class Drivers extends React.Component {
   };
 
   render() {
+    console.log("search", this.state.searchBar);
     return (
       <div className="driverBody">
         <h2 className="title">Drivers Championship</h2>
+        <input
+          placeholder="Search"
+          value={this.state.filterValue}
+          onInput={(e) => handleFilter(e)}
+        ></input>
         <table className="content-table">
           <thead>
             <tr>
