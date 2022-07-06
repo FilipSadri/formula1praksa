@@ -51,7 +51,7 @@ export default class Races extends React.Component {
                   key={race.round}
                   onClick={() => this.handleRaceResults(race.round)}
                 >
-                  <td>{race.round}</td>
+                  <td className="num-b">{race.round}</td>
                   <td className="pointer">
                     <img
                       src={
@@ -61,7 +61,7 @@ export default class Races extends React.Component {
                     {race.raceName}
                   </td>
                   <td>{race.Circuit.circuitName}</td>
-                  <td>{race.date}</td>
+                  <td className="num-b">{race.date}</td>
                   <td>
                     <img
                       src={

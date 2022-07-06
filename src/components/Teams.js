@@ -42,10 +42,10 @@ export default class Teams extends React.Component {
                         {this.state.teams.map(team => {
                             return (
                                 <tr key={team.Constructor.constructorId} onClick={() => this.handleTeamsDetails(team.Constructor.constructorId)}>
-                                    <td>{team.position}</td>
+                                    <td className="num-b">{team.position}</td>
                                     <td className="pointer"><img src={require(`./../img/flags/${team.Constructor.nationality}.png`).default} width={30}/>{team.Constructor.name}</td>
                                     <td>Details: <a className='button' href={team.Constructor.url} target="_blank"> <BsBoxArrowUpRight/></a></td>
-                                    <td>{team.points}</td>
+                                    <td className="num-b num-box">{team.points}</td>
                                 </tr>
                             )
                         })}

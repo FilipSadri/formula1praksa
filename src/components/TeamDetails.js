@@ -81,7 +81,7 @@ export default class TeamDetails extends React.Component {
     }
 
     return (
-      <div className="main">
+      <div className="main res-size">
         {this.state.details.map((team) => {
           return (
             <div className="info" key={team.Constructor.constructorId}>
@@ -101,7 +101,7 @@ export default class TeamDetails extends React.Component {
                       require(`./../img/flags/${team.Constructor.nationality}.png`)
                         .default
                     }
-                  />
+                  /> 
                   <p>{team.Constructor.name}</p>
                 </div>
               </div>
@@ -143,28 +143,28 @@ export default class TeamDetails extends React.Component {
           <tbody>
             {this.state.teams.map((team) => (
               <tr key={team.round}>
-                <td>{team.round}</td>
+                <td className="num-b">{team.round}</td>
                 <td>
                   <img
                     src={require(`./../img/flags/${team.raceName}.png`).default}
-                  />
+                  /> 
                   {team.raceName}
                 </td>
-                <td
+                <td className="num-b num-box"
                   style={{
                     backgroundColor: this.setColor(team.Results[0].position),
                   }}
                 >
                   {team.Results[0].position}
                 </td>
-                <td
+                <td className="num-b"
                   style={{
                     backgroundColor: this.setColor(team.Results[1].position),
                   }}
                 >
                   {team.Results[1].position}
                 </td>
-                <td>
+                <td className="num-b num-box">
                   {parseInt(team.Results[0].points) +
                     parseInt(team.Results[1].points)}
                 </td>
