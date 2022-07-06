@@ -51,11 +51,6 @@ export default class Drivers extends React.Component {
       <div className="driverBody">
         <TopNavigation handleFilter={this.handleFilter} />
         <h2 className="title">Drivers Championship</h2>
-        {/* <input
-          placeholder="Search"
-          value={this.state.filterValue}
-          onInput={(e) => handleFilter(e)}
-        ></input> */}
         <table className="content-table">
           <thead>
             <tr>
