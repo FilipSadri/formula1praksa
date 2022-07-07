@@ -75,7 +75,7 @@ export default class Drivers extends React.Component {
           <tbody>
             {this.state.drivers.map((driver) => (
               <tr key={driver.Driver.driverId}>
-                <td>{driver.position}</td>
+                <td className="num-b">{driver.position}</td>
                 <td
                   onClick={() =>
                     this.handleClickDetails(driver.Driver.driverId)
@@ -92,7 +92,7 @@ export default class Drivers extends React.Component {
                   {driver.Driver.givenName} {driver.Driver.familyName}
                 </td>
                 <td>{driver.Constructors[0].name}</td>
-                <td>{driver.points}</td>
+                <td className="num-b num-box">{driver.points}</td>
               </tr>
             ))}
           </tbody>

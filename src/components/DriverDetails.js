@@ -150,7 +150,7 @@ export default class DriverDetails extends React.Component {
           <tbody>
             {this.state.races.map((race) => (
               <tr key={race.round}>
-                <td>{race.round}</td>
+                <td className="num-b">{race.round}</td>
                 <td>
                   {" "}
                   <img
@@ -159,8 +159,8 @@ export default class DriverDetails extends React.Component {
                   {race.raceName}
                 </td>
                 <td>{race.Results[0].Constructor.name}</td>
-                <td>{race.Results[0].grid}</td>
-                <td
+                <td className="num-b">{race.Results[0].grid}</td>
+                <td className="num-b num-box"
                   style={{
                     backgroundColor: this.setColor(race.Results[0].position),
                   }}

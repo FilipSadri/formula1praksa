@@ -69,7 +69,7 @@ export default class Teams extends React.Component {
             {this.state.teams.map((team) => {
               return (
                 <tr key={team.Constructor.constructorId}>
-                  <td>{team.position}</td>
+                  <td className="num-b">{team.position}</td>
                   <td
                     onClick={() =>
                       this.handleTeamsDetails(team.Constructor.constructorId)
@@ -96,7 +96,7 @@ export default class Teams extends React.Component {
                       <BsBoxArrowUpRight />
                     </a>
                   </td>
-                  <td>{team.points}</td>
+                  <td className="num-b num-box">{team.points}</td>
                 </tr>
               );
             })}
