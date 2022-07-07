@@ -78,7 +78,7 @@ export default class RaceResults extends React.Component {
       },
       {
         title: this.state.details[0].raceName,
-        url: "raceResults/:circuitId",
+        url: "",
       },
     ];
 

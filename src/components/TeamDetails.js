@@ -33,7 +33,6 @@ export default class TeamDetails extends React.Component {
 
   setColor = (position) => {
     let color = "";
-    console.log("position", position);
     switch (position) {
       case "1":
         color = "yellow";
@@ -88,7 +87,7 @@ export default class TeamDetails extends React.Component {
       },
       {
         title: this.state.details[0].Constructor.name,
-        url: "/teamDetails/:constructorId",
+        url: "",
       },
     ];
 

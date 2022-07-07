@@ -89,7 +89,7 @@ export default class DriverDetails extends React.Component {
           this.state.details[0].Driver.givenName +
           " " +
           this.state.details[0].Driver.familyName,
-        url: "/driverDetails/:driverId",
+        url: "",
       },
     ];
 
@@ -98,7 +98,6 @@ export default class DriverDetails extends React.Component {
         <Breadcrumb breadcrumb={breadcrumb} />
         <div className="main res-size">
           {this.state.details.map((detail) => {
-            console.log("details", this.state.details);
             return (
               <div className="info" key={detail.Driver.driverId}>
                 <div className="About">
