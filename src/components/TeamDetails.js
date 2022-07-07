@@ -81,7 +81,7 @@ export default class TeamDetails extends React.Component {
     }
 
     return (
-      <div className="main">
+      <div className="main res-size">
         {this.state.details.map((team) => {
           return (
             <div className="info" key={team.Constructor.constructorId}>

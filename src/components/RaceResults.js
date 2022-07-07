@@ -70,7 +70,7 @@ export default class RaceResults extends React.Component {
       );
     }
     return (
-      <div className="main">
+      <div className="main res-size">
         {this.state.details.map((race) => {
           return (
             <div className="raceResultsInfo" key={race.Circuit.circuitId}>
