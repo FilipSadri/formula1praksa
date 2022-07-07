@@ -71,11 +71,13 @@ export default class Teams extends React.Component {
 
     return (
       <div className="driverBody">
-        <Breadcrumb breadcrumb={breadcrumb} />
-        <TopNavigation
-          filterValue={this.state.filterValue}
-          handleFilter={this.handleFilter}
-        />
+        <div className="navigacija">
+          <Breadcrumb breadcrumb={breadcrumb} />
+          <TopNavigation
+            filterValue={this.state.filterValue}
+            handleFilter={this.handleFilter}
+          />
+        </div>
         <h2 className="title">Constructors Championship</h2>
         <table className="content-table">
           <thead>

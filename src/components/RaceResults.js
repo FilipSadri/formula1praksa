@@ -74,115 +74,119 @@ export default class RaceResults extends React.Component {
     const breadcrumb = [
       {
         title: "Races",
-        url: "/races"
+        url: "/races",
       },
       {
         title: this.state.details[0].raceName,
-        url: "raceResults/:circuitId"
-      }
+        url: "raceResults/:circuitId",
+      },
     ];
-    
+
     return (
-      <div><Breadcrumb breadcrumb={breadcrumb} />
-      <div className="main res-size">
-        {this.state.details.map((race) => {
-          return (
-            <div className="raceResultsInfo" key={race.Circuit.circuitId}>
-              <h3 className="raceResults">
-                <img
-                  src={require(`./../img/flags/${race.raceName}.png`).default}
-                />
-                {race.raceName}
-              </h3>
-              <p>Country: {race.Circuit.Location.country}</p>
-              <p>Location: {race.Circuit.Location.locality}</p>
-              <p>Date: {race.date}</p>
-            </div>
-          );
-        })}
+      <div className="navDetails">
+        <Breadcrumb breadcrumb={breadcrumb} />
+        <div className="main res-size">
+          {this.state.details.map((race) => {
+            return (
+              <div className="raceResultsInfo" key={race.Circuit.circuitId}>
+                <h3 className="raceResults">
+                  <img
+                    src={require(`./../img/flags/${race.raceName}.png`).default}
+                  />
+                  {race.raceName}
+                </h3>
+                <p>Country: {race.Circuit.Location.country}</p>
+                <p>Location: {race.Circuit.Location.locality}</p>
+                <p>Date: {race.date}</p>
+              </div>
+            );
+          })}
 
-        <table className="content-table raceInfo">
-          <thead>
-            <tr>
-              <th scope="col" colSpan={4}>
-                Qualifying Results
-              </th>
-            </tr>
-            <tr>
-              <th scope="col">Pos</th>
-              <th scope="col">Driver</th>
-              <th scope="col">Team</th>
-              <th scope="col">Best Time</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.qualifyingResults.map((race) => {
-              let times = [];
-              times.push(race.Q1);
-              times.push(race.Q2);
-              times.push(race.Q3);
-              times.sort();
+          <table className="content-table raceInfo">
+            <thead>
+              <tr>
+                <th scope="col" colSpan={4}>
+                  Qualifying Results
+                </th>
+              </tr>
+              <tr>
+                <th scope="col">Pos</th>
+                <th scope="col">Driver</th>
+                <th scope="col">Team</th>
+                <th scope="col">Best Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.qualifyingResults.map((race) => {
+                let times = [];
+                times.push(race.Q1);
+                times.push(race.Q2);
+                times.push(race.Q3);
+                times.sort();
 
-              return (
-                <tr key={race.position}>
-                  <td className="num-b">{race.position}</td>
-                  <td>
-                    <img
-                      src={
-                        require(`./../img/flags/${race.Driver.nationality}.png`)
-                          .default
-                      }
-                    />{" "}
-                    {race.Driver.familyName}
-                  </td>
-                  <td>{race.Constructor.name}</td>
-                  <td className="num-b">{times[0]}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+                return (
+                  <tr key={race.position}>
+                    <td className="num-b">{race.position}</td>
+                    <td>
+                      <img
+                        src={
+                          require(`./../img/flags/${race.Driver.nationality}.png`)
+                            .default
+                        }
+                      />{" "}
+                      {race.Driver.familyName}
+                    </td>
+                    <td>{race.Constructor.name}</td>
+                    <td className="num-b">{times[0]}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
 
-        <table className="content-table raceInfo">
-          <thead>
-            <tr>
-              <th scope="col" colSpan={5}>
-                Race results
-              </th>
-            </tr>
-            <tr>
-              <th scope="col">Pos</th>
-              <th scope="col">Driver</th>
-              <th scope="col">Team</th>
-              <th scope="col">Result</th>
-              <th scope="col">Points</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.racesResults.map((race) => {
-              return (
-                <tr key={race.position}>
-                  <td className="num-b">{race.position}</td>
-                  <td>
-                    <img
-                      src={
-                        require(`./../img/flags/${race.Driver.nationality}.png`)
-                          .default
-                      }
-                    />{" "}
-                    {race.Driver.familyName}
-                  </td>
-                  <td>{race.Constructor.name}</td>
-                  <td className="num-b">{race?.Time?.time}</td>
-                  <td className="num-b num-box" style={{ backgroundColor: this.setColor(race.points) }}>
-                    {race.points}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+          <table className="content-table raceInfo">
+            <thead>
+              <tr>
+                <th scope="col" colSpan={5}>
+                  Race results
+                </th>
+              </tr>
+              <tr>
+                <th scope="col">Pos</th>
+                <th scope="col">Driver</th>
+                <th scope="col">Team</th>
+                <th scope="col">Result</th>
+                <th scope="col">Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.racesResults.map((race) => {
+                return (
+                  <tr key={race.position}>
+                    <td className="num-b">{race.position}</td>
+                    <td>
+                      <img
+                        src={
+                          require(`./../img/flags/${race.Driver.nationality}.png`)
+                            .default
+                        }
+                      />{" "}
+                      {race.Driver.familyName}
+                    </td>
+                    <td>{race.Constructor.name}</td>
+                    <td className="num-b">{race?.Time?.time}</td>
+                    <td
+                      className="num-b num-box"
+                      style={{ backgroundColor: this.setColor(race.points) }}
+                    >
+                      {race.points}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   }

@@ -67,17 +67,19 @@ export default class Drivers extends React.Component {
     const breadcrumb = [
       {
         title: "Drivers",
-        url: "/"
-      }
+        url: "/",
+      },
     ];
 
     return (
       <div className="driverBody">
-        <Breadcrumb breadcrumb={breadcrumb}/>
-        <TopNavigation
-          filterValue={this.state.filterValue}
-          handleFilter={this.handleFilter}
-        />
+        <div className="navigacija">
+          <Breadcrumb breadcrumb={breadcrumb} />
+          <TopNavigation
+            filterValue={this.state.filterValue}
+            handleFilter={this.handleFilter}
+          />
+        </div>
         <h2 className="title">Drivers Championship</h2>
         <table className="content-table">
           <thead>

@@ -84,108 +84,113 @@ export default class TeamDetails extends React.Component {
     const breadcrumb = [
       {
         title: "Teams",
-        url: "/teams"
+        url: "/teams",
       },
       {
         title: this.state.details[0].Constructor.name,
-        url: "/teamDetails/:constructorId"
-      }
+        url: "/teamDetails/:constructorId",
+      },
     ];
 
     return (
-      <div><Breadcrumb breadcrumb={breadcrumb} />
-      <div className="main res-size">
-        {this.state.details.map((team) => {
-          return (
-            <div className="info" key={team.Constructor.constructorId}>
-              <div className="About">
-                <div className="Picture">
-                  <img
-                    style={{ backgroundColor: "white" }}
-                    src={
-                      require(`./../img/teams/${team.Constructor.name}.png`)
-                        .default
-                    }
-                  />
+      <div className="navDetails">
+        <Breadcrumb breadcrumb={breadcrumb} />
+        <div className="main res-size">
+          {this.state.details.map((team) => {
+            return (
+              <div className="info" key={team.Constructor.constructorId}>
+                <div className="About">
+                  <div className="Picture">
+                    <img
+                      style={{ backgroundColor: "white" }}
+                      src={
+                        require(`./../img/teams/${team.Constructor.name}.png`)
+                          .default
+                      }
+                    />
+                  </div>
+                  <div style={{ marginLeft: "10px" }}>
+                    <img
+                      src={
+                        require(`./../img/flags/${team.Constructor.nationality}.png`)
+                          .default
+                      }
+                    />
+                    <p>{team.Constructor.name}</p>
+                  </div>
                 </div>
-                <div style={{ marginLeft: "10px" }}>
-                  <img
-                    src={
-                      require(`./../img/flags/${team.Constructor.nationality}.png`)
-                        .default
-                    }
-                  />
-                  <p>{team.Constructor.name}</p>
+                <div>
+                  <p>Country: {team.Constructor.nationality}</p>
+                  <p>Position: {team.position}</p>
+                  <p>Points: {team.points}</p>
+                  <p>
+                    History:
+                    <a
+                      className="button"
+                      href={team.Constructor.url}
+                      target="_blank"
+                    >
+                      <BsBook />
+                    </a>
+                  </p>
                 </div>
               </div>
-              <div>
-                <p>Country: {team.Constructor.nationality}</p>
-                <p>Position: {team.position}</p>
-                <p>Points: {team.points}</p>
-                <p>
-                  History:
-                  <a
-                    className="button"
-                    href={team.Constructor.url}
-                    target="_blank"
-                  >
-                    <BsBook />
-                  </a>
-                </p>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
 
-        <table className="content-table details-info">
-          <thead>
-            <tr>
-              <th scope="col" colSpan={5}>
-                Formula 1 2013 Results
-              </th>
-            </tr>
-            <tr>
-              <th>Round</th>
-              <th>Grand Prix</th>
-              <th>{this.state.teams[0].Results[0].Driver.familyName}</th>
-              <th>{this.state.teams[0].Results[1].Driver.familyName}</th>
-              <th>Points</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {this.state.teams.map((team) => (
-              <tr key={team.round}>
-                <td className="num-b">{team.round}</td>
-                <td>
-                  <img
-                    src={require(`./../img/flags/${team.raceName}.png`).default}
-                  />{" "}
-                  {team.raceName}
-                </td>
-                <td className="num-b num-box"
-                  style={{
-                    backgroundColor: this.setColor(team.Results[0].position),
-                  }}
-                >
-                  {team.Results[0].position}
-                </td>
-                <td className="num-b"
-                  style={{
-                    backgroundColor: this.setColor(team.Results[1].position),
-                  }}
-                >
-                  {team.Results[1].position}
-                </td>
-                <td className="num-b num-box">
-                  {parseInt(team.Results[0].points) +
-                    parseInt(team.Results[1].points)}
-                </td>
+          <table className="content-table details-info">
+            <thead>
+              <tr>
+                <th scope="col" colSpan={5}>
+                  Formula 1 2013 Results
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+              <tr>
+                <th>Round</th>
+                <th>Grand Prix</th>
+                <th>{this.state.teams[0].Results[0].Driver.familyName}</th>
+                <th>{this.state.teams[0].Results[1].Driver.familyName}</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {this.state.teams.map((team) => (
+                <tr key={team.round}>
+                  <td className="num-b">{team.round}</td>
+                  <td>
+                    <img
+                      src={
+                        require(`./../img/flags/${team.raceName}.png`).default
+                      }
+                    />{" "}
+                    {team.raceName}
+                  </td>
+                  <td
+                    className="num-b num-box"
+                    style={{
+                      backgroundColor: this.setColor(team.Results[0].position),
+                    }}
+                  >
+                    {team.Results[0].position}
+                  </td>
+                  <td
+                    className="num-b"
+                    style={{
+                      backgroundColor: this.setColor(team.Results[1].position),
+                    }}
+                  >
+                    {team.Results[1].position}
+                  </td>
+                  <td className="num-b num-box">
+                    {parseInt(team.Results[0].points) +
+                      parseInt(team.Results[1].points)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   }

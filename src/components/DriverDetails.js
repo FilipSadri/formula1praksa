@@ -82,109 +82,112 @@ export default class DriverDetails extends React.Component {
     const breadcrumb = [
       {
         title: "Drivers",
-        url: "/"
+        url: "/",
       },
       {
-        title: this.state.details[0].Driver.givenName + " " + this.state.details[0].Driver.familyName,
-        url: "/driverDetails/:driverId"
-      }
+        title:
+          this.state.details[0].Driver.givenName +
+          " " +
+          this.state.details[0].Driver.familyName,
+        url: "/driverDetails/:driverId",
+      },
     ];
 
     return (
-      <div><Breadcrumb breadcrumb={breadcrumb} />
-      <div className="main res-size">
-        {this.state.details.map((detail) => {
-          console.log("details", this.state.details);
-          return (
-            <div
-              className="info"
-              key={detail.Driver.driverId}
-            >
-              <div className="About">
+      <div className="navDetails">
+        <Breadcrumb breadcrumb={breadcrumb} />
+        <div className="main res-size">
+          {this.state.details.map((detail) => {
+            console.log("details", this.state.details);
+            return (
+              <div className="info" key={detail.Driver.driverId}>
+                <div className="About">
+                  <div className="Picture">
+                    <img
+                      src={
+                        require(`./../img/drivers/${detail.Driver.driverId}.jpg`)
+                          .default
+                      }
+                    />
+                  </div>
 
-                <div className="Picture">
-                  <img
-                    src={
-                      require(`./../img/drivers/${detail.Driver.driverId}.jpg`)
-                        .default
-                    }
-                  />
+                  <div style={{ marginLeft: "10px" }}>
+                    <img
+                      src={
+                        require(`./../img/flags/${detail.Driver.nationality}.png`)
+                          .default
+                      }
+                    />
+                    <p>
+                      {detail.Driver.givenName} {detail.Driver.familyName}
+                    </p>
+                  </div>
                 </div>
-
-                <div style={{marginLeft:"10px"}}>
-                  <img
-                    src={
-                      require(`./../img/flags/${detail.Driver.nationality}.png`)
-                        .default
-                    }
-                  />
+                <div>
+                  <p>Country: {detail.Driver.nationality}</p>
+                  <p>Team: {detail.Constructors[0].name}</p>
+                  <p>Birth: {detail.Driver.dateOfBirth}</p>
                   <p>
-                    {detail.Driver.givenName} {detail.Driver.familyName}
+                    Biography:{" "}
+                    <a
+                      className="button"
+                      href={detail.Driver.url}
+                      target="_blank"
+                    >
+                      {" "}
+                      <BsBook />
+                    </a>
                   </p>
                 </div>
               </div>
-              <div>
-                <p>Country: {detail.Driver.nationality}</p>
-                <p>Team: {detail.Constructors[0].name}</p>
-                <p>Birth: {detail.Driver.dateOfBirth}</p>
-                <p>
-                  Biography:{" "}
-                  <a
-                    className="button"
-                    href={detail.Driver.url}
-                    target="_blank"
-                  >
-                    {" "}
-                    <BsBook />
-                  </a>
-                </p>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
 
-        <table className="content-table details-info">
-          <thead>
-            <tr>
-              <th scope="col" colSpan={5}>
-                {" "}
-                Formula 1 2013 Results
-              </th>
-            </tr>
-            <tr>
-              <th>Round</th>
-              <th>Grand Prix</th>
-              <th>Team</th>
-              <th>Grid</th>
-              <th>Race</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {this.state.races.map((race) => (
-              <tr key={race.round}>
-                <td className="num-b">{race.round}</td>
-                <td>
+          <table className="content-table details-info">
+            <thead>
+              <tr>
+                <th scope="col" colSpan={5}>
                   {" "}
-                  <img
-                    src={require(`./../img/flags/${race.raceName}.png`).default}
-                  />{" "}
-                  {race.raceName}
-                </td>
-                <td>{race.Results[0].Constructor.name}</td>
-                <td className="num-b">{race.Results[0].grid}</td>
-                <td className="num-b num-box"
-                  style={{
-                    backgroundColor: this.setColor(race.Results[0].position),
-                  }}
-                >
-                  {race.Results[0].position}
-                </td>
+                  Formula 1 2013 Results
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+              <tr>
+                <th>Round</th>
+                <th>Grand Prix</th>
+                <th>Team</th>
+                <th>Grid</th>
+                <th>Race</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {this.state.races.map((race) => (
+                <tr key={race.round}>
+                  <td className="num-b">{race.round}</td>
+                  <td>
+                    {" "}
+                    <img
+                      src={
+                        require(`./../img/flags/${race.raceName}.png`).default
+                      }
+                    />{" "}
+                    {race.raceName}
+                  </td>
+                  <td>{race.Results[0].Constructor.name}</td>
+                  <td className="num-b">{race.Results[0].grid}</td>
+                  <td
+                    className="num-b num-box"
+                    style={{
+                      backgroundColor: this.setColor(race.Results[0].position),
+                    }}
+                  >
+                    {race.Results[0].position}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   }
