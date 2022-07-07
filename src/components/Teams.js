@@ -65,7 +65,7 @@ export default class Teams extends React.Component {
     const breadcrumb = [
       {
         title: "Teams",
-        url: "/teams",
+        url: "",
       },
     ];
 
