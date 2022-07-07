@@ -2,6 +2,7 @@ import React from "react";
 import * as $ from "jquery";
 import history from "../history";
 import TopNavigation from "./TopNavigation";
+import Breadcrumb from "./Breadcrumb";
 
 export default class Races extends React.Component {
   state = {
@@ -51,8 +52,24 @@ export default class Races extends React.Component {
   };
 
   render() {
+    if (this.state.isLoading) {
+      return (
+        <div className="loader-container">
+          <CircleLoader color="yellow" size={60} />
+        </div>
+      );
+    }
+
+    const breadcrumb = [
+      {
+        title: "Races",
+        url: "/races"
+      }
+    ];
+
     return (
       <div className="driverBody">
+        <Breadcrumb breadcrumb={breadcrumb} />
         <TopNavigation
           filterValue={this.state.filterValue}
           handleFilter={this.handleFilter}
