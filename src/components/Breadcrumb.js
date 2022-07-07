@@ -25,6 +25,7 @@ export default class Breadcrumb extends React.Component {
               <div key={i}>
                 <li>
                   <button
+                    disabled={crumb.url.length == 0}
                     className="btn"
                     style={{
                       backgroundColor: "grey",
