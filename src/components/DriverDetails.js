@@ -82,7 +82,7 @@ export default class DriverDetails extends React.Component {
     const breadcrumb = [
       {
         title: "Drivers",
-        url: "/drivers",
+        url: "/",
       },
       {
         title:
