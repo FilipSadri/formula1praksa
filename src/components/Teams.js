@@ -16,15 +16,18 @@ export default class Teams extends React.Component {
     this.getPosts();
   }
 
-  getPosts = () => {
-    const url = "http://ergast.com/api/f1/2013/constructorStandings.json";
-    $.get(url, (data) => {
-      this.setState({
-        teams:
-          data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings,
-        searchApiData:
-          data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings,
-      });
+  getPosts = async () => {
+    const teamStandingsUrl =
+      "http://ergast.com/api/f1/2013/constructorStandings.json";
+    const responseTeamStandings = await fetch(teamStandingsUrl);
+    const teamStandings = await responseTeamStandings.json();
+    this.setState({
+      teams:
+        teamStandings.MRData.StandingsTable.StandingsLists[0]
+          .ConstructorStandings,
+      searchApiData:
+        teamStandings.MRData.StandingsTable.StandingsLists[0]
+          .ConstructorStandings,
     });
   };
 
@@ -62,8 +65,8 @@ export default class Teams extends React.Component {
     const breadcrumb = [
       {
         title: "Teams",
-        url: "/teams"
-      }
+        url: "/teams",
+      },
     ];
 
     return (

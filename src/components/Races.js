@@ -15,13 +15,13 @@ export default class Races extends React.Component {
     this.getRaces();
   }
 
-  getRaces = () => {
-    const url = "http://ergast.com/api/f1/2013/results/1.json";
-    $.get(url, (data) => {
-      this.setState({
-        races: data.MRData.RaceTable.Races,
-        searchApiData: data.MRData.RaceTable.Races,
-      });
+  getRaces = async () => {
+    const raceStandingsUrl = "http://ergast.com/api/f1/2013/results/1.json";
+    const responseRaceStandings = await fetch(raceStandingsUrl);
+    const raceStandings = await responseRaceStandings.json();
+    this.setState({
+      races: raceStandings.MRData.RaceTable.Races,
+      searchApiData: raceStandings.MRData.RaceTable.Races,
     });
   };
 
@@ -63,8 +63,8 @@ export default class Races extends React.Component {
     const breadcrumb = [
       {
         title: "Races",
-        url: "/races"
-      }
+        url: "/races",
+      },
     ];
 
     return (
