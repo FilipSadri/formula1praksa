@@ -1,5 +1,5 @@
 /* logo iconice */
-*{
+* {
     margin: 0;
     padding: 0;
 }
@@ -103,7 +103,7 @@
     width: 100%;
 }
 
-.driverDetailsContainer{
+.driverDetailsContainer {
     width: 100%;
 }
 
@@ -144,20 +144,22 @@
 }
 
 .info {
-    background-color: #35333e;
+    height: 350px;
+    margin-left: 20px;
+    margin-top: 35px;
+    background-color: #46444e;
     color: white;
     padding: 5px;
     width: 14%;
+    border-radius: 10px;
 }
 
 /* tabela */
 
 .content-table {
     border-collapse: collapse;
-    margin: 50px 50px;
-    width: 93%;
-    /* min-width: 400px; */
-    /* wisth: 83vw; */
+    margin: 30px 30px;
+    width: 95%;
     font-size: 0.9em;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
@@ -208,7 +210,7 @@
 }
 
 .Picture img {
-    width:60px;
+    width: 60px;
     border-radius: 3px;
 }
 
@@ -257,7 +259,7 @@ tbody tr td:nth-child(4) {
 /* responsive layout */
 
 
-@media screen and (min-width:1480px) and (max-width: 1765px) {
+@media screen and (min-width:1480px) and (max-width: 1770px) {
     .sidebar {
         width: auto;
     }
@@ -274,22 +276,24 @@ tbody tr td:nth-child(4) {
         width: auto;
     }
 
-    .info{
+    .info {
         width: auto;
     }
+
 }
 
- @media screen and (min-width:900px) and (max-width:1024px){
+@media screen and (min-width:900px) and (max-width:1024px) {
     .main.res-size {
         flex-direction: column;
     }
+
     .sidebar,
     .content-table.raceInfo {
         width: auto;
     }
 
     .content-table {
-        width: auto;
+        width: 90%;
     }
 
     .raceResultsInfo,
@@ -298,7 +302,12 @@ tbody tr td:nth-child(4) {
         text-align: center;
     }
 
-    .info{
+    .raceResultsInfo {
+        margin: 0 5px 0 5px;
+        background-color: #46444e;
+    }
+
+    .info {
         display: block;
         align-items: center;
     }
@@ -320,6 +329,7 @@ tbody tr td:nth-child(4) {
     .main.res-size {
         flex-direction: column;
     }
+
     .sidebar,
     .content-table.raceInfo {
         width: auto;
@@ -340,7 +350,7 @@ tbody tr td:nth-child(4) {
         align-items: center;
     }
 
-    .info{
+    .info {
         display: block;
         align-items: center;
     }
@@ -353,7 +363,7 @@ tbody tr td:nth-child(4) {
 
 }
 
-@media screen and (min-width:411px) and (max-width: 768px) {
+@media screen and (min-width:620px) and (max-width: 768px) {
 
     .sidebar,
     .content-table.raceInfo {
@@ -373,29 +383,25 @@ tbody tr td:nth-child(4) {
         width: auto;
         text-align: center;
     }
+
     .About {
         display: block;
         align-items: center;
     }
-  
+
     .raceResults {
         display: block;
         align-items: center;
     }
 
-    .info{
-        margin:0 5px 0 5px;
-        background-color: #46444e;
-    }
-
-    .content-table.details-info{
+    .content-table.details-info {
         width: auto;
     }
 
 
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 620px) {
 
     .main {
         flex-direction: column;
@@ -416,11 +422,11 @@ tbody tr td:nth-child(4) {
         font-size: 10px;
     }
 
-    .content-table.details-info{
+    .content-table.details-info {
         margin-top: 30px;
     }
 
-    .info{
+    .info {
         margin-top: 5px;
         background-color: #46444e;
     }
@@ -435,11 +441,12 @@ tbody tr td:nth-child(4) {
         text-align: center;
         border: none;
     }
+
     .About {
         display: block;
         align-items: center;
     }
-    
+
     .details-info {
         width: auto;
         margin: auto;
@@ -452,16 +459,3 @@ tbody tr td:nth-child(4) {
     }
 
 }
-
-  
-
-
-
-
-
-
-
-
-
-
-
