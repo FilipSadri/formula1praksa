@@ -21,24 +21,45 @@ export default class Breadcrumb extends React.Component {
             </Link>
           </button>
           {this.props.breadcrumb.map((crumb, i) => {
-            return (
-              <div key={i}>
-                <li>
-                  <button
-                    disabled={crumb.url.length == 0}
-                    className="btn"
-                    style={{
-                      backgroundColor: "grey",
-                      border: "none",
-                      marginLeft: "5px",
-                      marginTop: "5px",
-                    }}
-                  >
-                    <Link to={crumb.url}>{crumb.title}</Link>
-                  </button>
-                </li>
-              </div>
-            );
+            if (crumb.url.length == 0) {
+              return (
+                <div key={i}>
+                  <li>
+                    <button
+                      disabled
+                      className="btn"
+                      style={{
+                        backgroundColor: "#3489c2",
+                        border: "none",
+                        marginLeft: "5px",
+                        marginTop: "5px",
+                        color: "#ffffff",
+                      }}
+                    >
+                      <Link to={crumb.url}>{crumb.title}</Link>
+                    </button>
+                  </li>
+                </div>
+              );
+            } else {
+              return (
+                <div key={i}>
+                  <li>
+                    <button
+                      className="btn"
+                      style={{
+                        backgroundColor: "grey",
+                        border: "none",
+                        marginLeft: "5px",
+                        marginTop: "5px",
+                      }}
+                    >
+                      <Link to={crumb.url}>{crumb.title}</Link>
+                    </button>
+                  </li>
+                </div>
+              );
+            }
           })}
         </ul>
       </nav>
