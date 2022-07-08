@@ -79,7 +79,7 @@ export default class Races extends React.Component {
           </div>
         </div>
         <h2 className="title">Race Calendar</h2>
-        <table className="content-table">
+        <table className="content-table small-screen">
           <thead>
             <tr>
               <td scope="col" colSpan={5}>
@@ -97,7 +97,7 @@ export default class Races extends React.Component {
           <tbody>
             {this.state.races.map((race) => {
               return (
-                <tr key={race.round}>
+                <tr className="small-screen" key={race.round}>
                   <td className="num-b num-box">{race.round}</td>
                   <td
                     onClick={() => this.handleRaceResults(race.round)}
