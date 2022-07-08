@@ -93,7 +93,7 @@ export default class Teams extends React.Component {
             {this.state.teams.map((team) => {
               return (
                 <tr key={team.Constructor.constructorId}>
-                  <td className="num-b">{team.position}</td>
+                  <td className="num-b num-box">{team.position}</td>
                   <td
                     onClick={() =>
                       this.handleTeamsDetails(team.Constructor.constructorId)

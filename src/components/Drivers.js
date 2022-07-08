@@ -96,7 +96,7 @@ export default class Drivers extends React.Component {
           <tbody>
             {this.state.drivers.map((driver) => (
               <tr key={driver.Driver.driverId}>
-                <td className="num-b">{driver.position}</td>
+                <td className="num-b num-box">{driver.position}</td>
                 <td
                   onClick={() =>
                     this.handleClickDetails(driver.Driver.driverId)

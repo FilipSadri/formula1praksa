@@ -98,7 +98,7 @@ export default class Races extends React.Component {
             {this.state.races.map((race) => {
               return (
                 <tr key={race.round}>
-                  <td className="num-b">{race.round}</td>
+                  <td className="num-b num-box">{race.round}</td>
                   <td
                     onClick={() => this.handleRaceResults(race.round)}
                     className="pointer"
@@ -111,7 +111,7 @@ export default class Races extends React.Component {
                     {race.raceName}
                   </td>
                   <td>{race.Circuit.circuitName}</td>
-                  <td className="num-b">{race.date}</td>
+                  <td className="num-b num-box">{race.date}</td>
                   <td>
                     <img
                       src={

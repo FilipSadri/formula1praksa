@@ -141,7 +141,7 @@ export default class RaceResults extends React.Component {
                       {race.Driver.familyName}
                     </td>
                     <td>{race.Constructor.name}</td>
-                    <td className="num-b">{times[0]}</td>
+                    <td className="num-b num-box">{times[0]}</td>
                   </tr>
                 );
               })}
@@ -167,7 +167,7 @@ export default class RaceResults extends React.Component {
               {this.state.racesResults.map((race) => {
                 return (
                   <tr key={race.position}>
-                    <td className="num-b">{race.position}</td>
+                    <td className="num-b num-box">{race.position}</td>
                     <td>
                       <img
                         src={
@@ -178,7 +178,7 @@ export default class RaceResults extends React.Component {
                       {race.Driver.familyName}
                     </td>
                     <td>{race.Constructor.name}</td>
-                    <td className="num-b">{race?.Time?.time}</td>
+                    <td className="num-b num-box">{race?.Time?.time}</td>
                     <td
                       className="num-b num-box"
                       style={{ backgroundColor: this.setColor(race.points) }}

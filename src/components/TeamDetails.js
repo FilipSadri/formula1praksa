@@ -156,7 +156,7 @@ export default class TeamDetails extends React.Component {
             <tbody>
               {this.state.teams.map((team) => (
                 <tr key={team.round}>
-                  <td className="num-b">{team.round}</td>
+                  <td className="num-b num-box">{team.round}</td>
                   <td>
                     <img
                       src={
@@ -174,7 +174,7 @@ export default class TeamDetails extends React.Component {
                     {team.Results[0].position}
                   </td>
                   <td
-                    className="num-b"
+                    className="num-b num-box"
                     style={{
                       backgroundColor: this.setColor(team.Results[1].position),
                     }}

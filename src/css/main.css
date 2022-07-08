@@ -228,8 +228,6 @@
     margin-top: 10px;
 }
 
-/* dodato naknadno za tabelu i receResultsInfo */
-
 .raceResultsInfo {
     background-color: #46444e;
     color: white;
@@ -244,21 +242,21 @@
     margin: 20px 80px 20px 80px;
 }
 
-tbody tr td:first-child {
+/* tbody tr td:first-child {
     width: 4em;
     min-width: 4em;
     max-width: 5em;
     word-break: break-all;
     text-align: center;
-}
+} */
 
-tbody tr td:nth-child(4) {
+/* tbody tr td:nth-child(4) {
     width: 10em;
     min-width: 4em;
     max-width: 8em;
     word-break: break-all;
     text-align: center;
-}
+} */
 
 .num-b {
     font-weight: bold;
@@ -531,9 +529,8 @@ tbody tr td:nth-child(4) {
     .bg-nav{
         background-color: #35333e;
     }
+
 }
-
-
 
 @media screen and (max-width: 360px) {
     .navigacija{
