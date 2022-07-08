@@ -88,8 +88,8 @@ export default class RaceResults extends React.Component {
         <div className="main res-size">
           {this.state.details.map((race) => {
             return (
-              <div className="info" key={race.Circuit.circuitId}>
-                <div className="About">
+              <div className="info raceResultsInfo" key={race.Circuit.circuitId}>
+                <div className="About raceResults">
                   <div style={{ marginLeft: "10px" }}>
                     <img
                       src={

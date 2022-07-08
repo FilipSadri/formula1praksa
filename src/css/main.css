@@ -150,7 +150,7 @@
 }
 
 .info {
-    height: 400px;
+    height: max-content;
     margin-left: 20px;
     margin-top: 35px;
     background-color: #46444e;
@@ -213,7 +213,7 @@
 
 .About {
     display: flex;
-    margin:5px 0 20px 0;
+    margin: 5px 0 20px 0;
 }
 
 .Picture img {
@@ -222,11 +222,12 @@
     margin-bottom: 10px;
 }
 
-.About p{
+.About p {
     font-size: 1.2em;
     font-weight: bold;
     margin-top: 10px;
 }
+
 /* dodato naknadno za tabelu i receResultsInfo */
 
 .raceResultsInfo {
@@ -281,14 +282,17 @@ tbody tr td:nth-child(4) {
     .sidebar {
         width: auto;
     }
-
+    .info{
+        width: auto;
+    }
 }
 
 @media screen and (min-width:1366px) and (max-width:1480px) {
     .sidebar {
         width: auto;
     }
-    .raceResultsInfo{
+
+    .raceResultsInfo {
         width: auto;
     }
 }
@@ -300,12 +304,12 @@ tbody tr td:nth-child(4) {
 
     .info {
         width: auto;
-        
-    }
-    .raceResultsInfo{
-        width: auto;
+
     }
 
+    .raceResultsInfo {
+        width: auto;
+    }
 }
 
 @media screen and (min-width:900px) and (max-width:1024px) {
@@ -326,22 +330,16 @@ tbody tr td:nth-child(4) {
     .info {
         width: auto;
         text-align: center;
-        /* display: block;
-        align-items: center; */
     }
 
-    .info{
+    .info {
         margin-right: 20px;
     }
-
-    /* .raceResultsInfo {
-        margin: 0 5px 0 5px;
-        background-color: #46444e;
-    } */
 
     .info {
         display: block;
         align-items: center;
+        height: auto;
     }
 
     .About {
@@ -349,18 +347,6 @@ tbody tr td:nth-child(4) {
         align-items: center;
         width: auto;
     }
-
-    .raceResultsInfo {
-        display: block;
-        align-items: center;
-    }
-
-    .raceResults {
-        display: block;
-        /* justify-content: center; */
-        align-items: center;
-    }
-
 }
 
 @media screen and (min-width:768px) and (max-width:900px) {
@@ -392,6 +378,8 @@ tbody tr td:nth-child(4) {
     .info {
         display: block;
         align-items: center;
+        height: auto;
+        margin-right: 20px;
     }
 
     .About {
@@ -399,7 +387,6 @@ tbody tr td:nth-child(4) {
         align-items: center;
         width: auto;
     }
-
 }
 
 @media screen and (min-width:620px) and (max-width: 768px) {
@@ -426,6 +413,7 @@ tbody tr td:nth-child(4) {
     .About {
         display: block;
         align-items: center;
+        width: auto;
     }
 
     .raceResults {
@@ -433,14 +421,19 @@ tbody tr td:nth-child(4) {
         align-items: center;
     }
 
+    .info {
+        display: block;
+        align-items: center;
+        height: auto;
+        margin-right: 20px;
+    }
+
     .content-table.details-info {
         width: auto;
     }
-
-
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (min-width: 360px) and (max-width: 620px) {
 
     .content-table.raceInfo {
         width: auto;
@@ -450,7 +443,7 @@ tbody tr td:nth-child(4) {
     .content-table.details-info {
         width: auto;
     }
-    
+
     .main {
         flex-direction: column;
     }
@@ -470,7 +463,7 @@ tbody tr td:nth-child(4) {
         font-size: 10px;
         width: 90%;
     }
-        
+
     .content-table.details-info {
         margin-top: 30px;
     }
@@ -479,6 +472,7 @@ tbody tr td:nth-child(4) {
         margin-top: 5px;
         margin-right: 20px;
         background-color: #46444e;
+        height: auto;
     }
 
     .title {
@@ -492,17 +486,14 @@ tbody tr td:nth-child(4) {
         border: none;
     }
 
-    .raceResultsInfo{
+    .raceResultsInfo {
         margin-right: 20px;
     }
-
-    /* .content-table.raceInfo.tab-2{
-        margin:10px 20px 0 20px;
-    } */
 
     .About {
         display: block;
         align-items: center;
+        width: auto;
     }
 
     .details-info {
@@ -515,13 +506,12 @@ tbody tr td:nth-child(4) {
         display: block;
         align-items: center;
     }
-
 }
 
 .navigacija {
     height: 45px;
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     background-color: #35333e;
 }
 
@@ -530,8 +520,52 @@ tbody tr td:nth-child(4) {
     color: white;
 }
 
-.navDetails{
+.navDetails {
     width: 100%;
     height: 100%;
     background-color: #35333e;
+}
+
+@media screen and (max-width: 360px) {
+
+    .main {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: auto;
+        max-height: 400px;
+        text-align: center;
+    }
+
+    .driverBody {
+        width: auto;
+    }
+
+    .content-table {
+        margin: auto;
+        font-size: 10px;
+    }
+
+    .title {
+        text-align: center;
+        font-size: 25px;
+    }
+
+    .info,
+    .raceResultsInfo {
+        width: auto;
+        text-align: center;
+        border: none;
+    }
+
+    .About {
+        flex-direction: column;
+    }
+
+    .details-info {
+        width: auto;
+        margin: auto;
+        font-size: 10px;
+    }
 }
