@@ -88,13 +88,17 @@ export default class RaceResults extends React.Component {
         <div className="main res-size">
           {this.state.details.map((race) => {
             return (
-              <div className="raceResultsInfo" key={race.Circuit.circuitId}>
-                <h3 className="raceResults">
-                  <img
-                    src={require(`./../img/flags/${race.raceName}.png`).default}
-                  />
-                  {race.raceName}
-                </h3>
+              <div className="info" key={race.Circuit.circuitId}>
+                <div className="About">
+                  <div style={{ marginLeft: "10px" }}>
+                    <img
+                      src={
+                        require(`./../img/flags/${race.raceName}.png`).default
+                      }
+                    />
+                    <p>{race.raceName}</p>
+                  </div>
+                </div>
                 <p>Country: {race.Circuit.Location.country}</p>
                 <p>Location: {race.Circuit.Location.locality}</p>
                 <p>Date: {race.date}</p>
