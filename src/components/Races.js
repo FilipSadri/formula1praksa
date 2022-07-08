@@ -69,12 +69,14 @@ export default class Races extends React.Component {
 
     return (
       <div className="driverBody">
-        <div className="navigacija">
-          <Breadcrumb breadcrumb={breadcrumb} />
-          <TopNavigation
-            filterValue={this.state.filterValue}
-            handleFilter={this.handleFilter}
-          />
+        <div className="bg-nav">
+          <div className="navigacija">
+            <Breadcrumb breadcrumb={breadcrumb} />
+            <TopNavigation
+              filterValue={this.state.filterValue}
+              handleFilter={this.handleFilter}
+            />
+          </div>
         </div>
         <h2 className="title">Race Calendar</h2>
         <table className="content-table">

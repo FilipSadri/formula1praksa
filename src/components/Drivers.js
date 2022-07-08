@@ -73,12 +73,14 @@ export default class Drivers extends React.Component {
 
     return (
       <div className="driverBody">
-        <div className="navigacija">
-          <Breadcrumb breadcrumb={breadcrumb} />
-          <TopNavigation
-            filterValue={this.state.filterValue}
-            handleFilter={this.handleFilter}
-          />
+        <div className="bg-nav">
+          <div className="navigacija">
+            <Breadcrumb breadcrumb={breadcrumb} />
+            <TopNavigation
+              filterValue={this.state.filterValue}
+              handleFilter={this.handleFilter}
+            />
+          </div>
         </div>
         <h2 className="title">Drivers Championship</h2>
         <table className="content-table">
