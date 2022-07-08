@@ -463,6 +463,14 @@
         width: auto;
         margin-top: 20px;
     }
+    .content-table.raceInfo.down{
+        width: auto;
+        margin-left: 0;
+        margin-right: 0;
+        
+    }
+
+
 
     .content-table.details-info {
         width: auto;
@@ -564,7 +572,7 @@
     }
 
     .content-table {
-        /* margin: auto; */
+        margin: auto;
         font-size: 10px;
     }
 
@@ -589,4 +597,5 @@
         margin: auto;
         font-size: 10px;
     }
+    
 }

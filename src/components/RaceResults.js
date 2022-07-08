@@ -88,7 +88,10 @@ export default class RaceResults extends React.Component {
         <div className="main res-size">
           {this.state.details.map((race) => {
             return (
-              <div className="info raceResultsInfo" key={race.Circuit.circuitId}>
+              <div
+                className="info raceResultsInfo"
+                key={race.Circuit.circuitId}
+              >
                 <div className="About raceResults">
                   <div style={{ marginLeft: "10px" }}>
                     <img
@@ -148,7 +151,7 @@ export default class RaceResults extends React.Component {
             </tbody>
           </table>
 
-          <table className="content-table raceInfo">
+          <table className="content-table raceInfo down">
             <thead>
               <tr>
                 <th scope="col" colSpan={5}>
